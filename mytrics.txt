@@ -1,0 +1,620 @@
+-----------------------
+https://www.learningcrux.com/video/the-complete-2020-web-development-bootcamp/32/2
+----------------------
+Git/Github:
+git init//only once
+git status
+git add .
+git commit -m "first commit"
+and the 3 cmd from github
+//for updating
+git commit -m "second commit"
+git push
+//clone: directement coller le lien ..
+//if someone already did a commit => I should do an upgrade
+________________________________________
+flutter trics2:[on VsCode]
+terminal > flutter create projectname
+terminal > flutter run
+clt shift P > flutter : launcher emulator
+To perform a hot restart, run the Flutter: Hot Restart command from the Command Palette, or press Ctrl + Shift + F5 
+apk release generator :
+flutter build apk --build-name=1.0.1 --build-number=2
+____
+Bootstrap thing :
+css:
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+Js
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+
+
+
+
+
+https://cloud.ibm.com/services/iotf-service/crn%3Av1%3Abluemix%3Apublic%3Aiotf-service%3Aeu-gb%3Aa%2F9f55f1d35cd4436ea5b1b7360aae19b8%3Af52f8f41-0c1d-4efe-ba92-3bdffab0b7ad%3A%3A?paneId=manage
+exo6:
+class path 'person':
+ result.images[0].classifiers[0].classes[0].class
+score path 'person':
+result.images[0].classifiers[0].classes[0].score
+Clé d'API : visual recognition
+zzstxH_b2Ibx558dELZN8SIwGGHtYoQDMhlfRpZz4vrh
+URL:
+https://api.us-south.visual-recognition.watson.cloud.ibm.com/instances/2cd18c15-ed86-45a5-9981-4692162d92d8
+
+exo 5 :keys Iot
+**API KEYS +  sa jeton
+a-cinhsd-ydmw8ogcwo  +  bdL4kcXi4G6u?f(V@4
+***clee de monitoring CPU :
+ID de l'organisation
+cinhsd
+Type de terminal
+CPUMonitor
+ID de terminal
+123
+Méthode d'authentification
+use-token-auth
+Jeton d'authentification
+pf&SmGFE69+RYB3!n-
+
+***Clé d'API IBM Cloud
+Vol2AyXEzPBOSu6uBxqLx1xTCj9WJvk_1XEG7P-qBS6V
+ wasston assistant:
+keys API
+3B8MvMMfT-B2jmbOSdc_GCsmkQ5x2-fXLdASBnFNYUaG
+URL 
+https://api.eu-gb.assistant.watson.cloud.ibm.com/instances/c989c5c3-de2b-4481-bc24-cf10fd2dba06
+quick start iotsensor : https://quickstart.internetofthings.ibmcloud.com/iotsensor/
+my iot dashbord
+https://cinhsd.internetofthings.ibmcloud.com/dashboard/boards
+sensor : http://watson-iot-sensor-simulator.mybluemix.net
+***first Device Room
+ID de l'organisation
+cinhsd
+Type de terminal
+RoomSensors
+ID de terminal
+TempreatureAndHumidity1
+Méthode d'authentification
+use-token-auth
+Jeton d'authentification
+W&9TEB-@sCulH3AKa@
+keys API wasston assistant:
+3B8MvMMfT-B2jmbOSdc_GCsmkQ5x2-fXLdASBnFNYUaG
+
+Skill name:
+Savior
+Skill ID:
+46421f0c-75ef-46df-b1f8-0b31a64525da
+
+{
+  "apikey": "96piauZuoK1e7wAf2tZUVOFSr14yCiP1S3natqICJacu",
+  "iam_apikey_description": "Auto-generated for key 32b107df-8419-49e7-bdc4-adf78875c9cc",
+  "iam_apikey_name": "Auto-generated service credentials",
+  "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+  "iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/9f55f1d35cd4436ea5b1b7360aae19b8::serviceid:ServiceId-d7e75e46-9cf8-471f-a9c8-9cb17fb27a6f",
+  "url": "https://api.eu-gb.text-to-speech.watson.cloud.ibm.com/instances/14f74a67-a63e-4a56-af3a-c9ed5bb25bc9"
+}
+
+
+p74
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+MOO:
+ERP : logiciel qui gere des societe {d'information } , et il est parametree selon   chaque entreprese  .
+QR code: code barre sur 2D => faire un Qr sur la table des restaurents
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+Flutter Trics :
+--comment/Uncomment all : clt+/
+--Icone generators :https://appicon.co
+Or setting the icone without the website freely ! : src/main/res[le fichier des icones ] => new > image assets => choose your toof > set it looking > ✅✅
+--don't forget to read the scaffold class guide
+free websites  : 
+     icons8[free icones/images]
+     vecteezy[free icones/images]
+     canva.com[design your own !!!]
+--hot reload from statless or statfull [dynamique] , you just need to type stless+enter
+ --container with no children try to be as big as possible .
+--container with children size thier size to thier child size .[can have only 1 child]
+--SafeArea => garanti the visibility to user , has one child . 
+--margin is for the outside of the container , and padding is for the inside of the container
+-- what works for collumns , also aplly to rows !
+--for space => SizedBox
+--nice website for all colors[although a new arrangements ..] and also Icons liste : materialpalette.com
+--Icons class is more flexible from Images , because it is pixilated , and we can shane the color icon ,,
+--colors.blue[900] is the same as colors.blue.shade900
+--always think about play with containers [arranged in rows and columns]+ padding & margin Propreity [with their widget EdgeInsets.symetric or .all .. for the horizantal/vertical dimension ] 
+--there is padding widgets just for padding ppte and it has only one child!
+--donc forget cross and axis and main lign alignement !
+--Expanded widget is created for centering for by a horizontal line [ for Row] and a vertical line [ for a Column] , and it takes only one child [Expanded=Center/line+safeArea]
+--String interpolation : the ability to add a name of variable with a string [image$i []dart and i==1 [i love it with python and i did'nt find it in java ]]
+--you can do som e online test with dart language on dratpad 
+--angela yu : bilding a habit based on an other habit !
+*********VI Idea********
+--to install a flutter pachage :
+first serch the one who has more pont , see the discription .. and after copy the name and add it in the yaml / : 
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.2
+  audioplayers: ^0.10.0
+audioplayers is the one here , the cupertino_icons is bby default the package of icons ,, 
+so after this just click get package[android stdio go to site package to import it ,,]
+and after that you just need to impor it ;
+--for the music folder , we add it to section assets as the images exactly 
+--don't forget that expanded widget helps a lot at managing the taille of yours containers/widgets, it ditribute all the valable spaces between the widgets . we use expaded for each single container ./we can crossaxisalignement by streach
+--fonction dart : * don't forget your type of return+the return of the type 
+*new for me  ** we can also declare a fonction off 2 args : type fct({Type1 p1,  ..}) and for the call => fct(p1: v1 , ..)
+but I advise you to choose this type because for exaple for the constructor , if you choose the other one with only() , you can't just use the default constructor . 
+--void main() => runApp(  MyApp(),  ); 
+this is an arrow fct , that's mean that it's composed by a single line of code , and we can just use an arrow '=>'
+[fat arrow Vs slim arrow(->) ] anstead of {}
+--freesound => freesound.org
+--❓ what apk should i use : release .. 
+--materialapp/ppte title : //APi,flutter : one line description used by the devise to identify the app for user  [wich is the title may katekliki 3la lbt li kaye3tik tt les app ouvertes .. ](IMpoortant !)
+ --I wanna read more about scafold and material app .. 
+**************VI trick*******
+--to change the name of the application : 
+go to androidManifest.xml at app/src/main ,and after that change the label : android:label="ball projectt" 
+**************VI trick*******
+--for adding fonts : i see it in Mi_Card => we add the fonts prom google fonts[install it , it will be a ziped file + extract the .ttf file => and add its to a folder named 'fonts' and after go to pubspec.yaml and add the folder  ] as exactly we do for images : 
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - images/
+  fonts:
+    - family: Pacifico
+      fonts:
+         - asset: fonts/Pacifico-Regular.ttf
+    - family: Modak
+      fonts:
+         - asset: fonts/Modak-Regular.ttf
+and for use in the Textstyle widget : fontFamily: 'Pacifico', 
+--//TODO : YOU WILL find it at todo/project/main => a list of to do [for managing the project ]
+--if you want to write an appostroph ' indo a String  , you may write 'aaa\'bbb' [we add a back slash]
+--shortWays: clt+maj+/ give /* */ 
+                     clt+/ give //
+--les alerts !![yes/no -- dialog ] https://pub.dev/packages/rflutter_alert
+--il sont apparu dans l'ecran par un structure pile : LIFO
+--once you open the gardle at android/app , you have an error , but it doesn;t affect the exceution 
+--for the visibility of any widget , we use Visibility(
+                visible: sb.buttonShouldBeVisible(),
+               child:...),
+--for the background color :
+in a container , we use the proprieties :
+decoration: BoxDecoration(
+            image: const DecorationImage(
+              image: AssetImage('images/background.png'),
+              fit: BoxFit.cover,
+            ),
+            //border: Border.all(color: Colors.white , width: 8),
+          ), 
+--dribbble.com site of design[Idea] of UI
+--for finding a color with a code #6x , we put instead of Colors.X : Color(0xff1b23c8), and the last 6x are the code of the color.
+--theme:themeData(), widg in material app for theme => read the manuel API [ppte ..]
+-- colorZilla : extention pipete [PS6] for firefox and chrome .[extarcting color's code]
+--we can also use a specefic flutter the and add copywith (to change some ppte that we use in the themeData) [this is in the theme ppte in materialApp]
+--for a particular widget theme , we can embaded the widget in a Theme widget and add as an ppte data : ThemeData()..
+--Expanded widget must be playced inside a fles Widget [Colom /Row/Flex]
+--instance variable=Field=property
+--immutabe=unchangebale[like statlesswidget]
+--font_awsome_Flutter : des Symboles speciales exple: [mars/venus] for BMI calculator 
+--const are defined at the compile time ; while the final can be assigned after this time ; like extractine the current time ,,
+--GestureDetector(), for dettecting onTab() longPress() ..
+--enums : enum EnumName{typeA,typeB,typeC} => call : EnumName.typeA
+--comments are usefeul to show your logique in programming , like I initialise this var to 0 .. but not to say to someone , this line ,means that if this var==1 then its is a female gender {conventions ,,}  , it's better to use enums; EXPLE:
+--enum CarType{
+Kar,
+Lagrima,
+Taxi,}
+class Car{
+CarType x;
+//Constructor
+Car({this.carstyle})
+}
+void main(){
+//access to  the element  
+Car y=Car(x: CarType.Lagrime);
+}
+--dart Ternary Operator : we use
+condition ? DoThisIfTrue : DoThisIfFalse ;
+//instead of if(condition) DoThisIfTrue ; else DoThisIfFalse ; we can assign a return value of an Ternary condition in a Variable !! because it's one line code
+--we can set a fonction as argument of othe Fct in flutter[Or also constructor] ! for preserving repititions .. 
+for example Calculation(n1,n2,add/multiply ,,){return x or doesn't return anything ,,}
+**there is also an other option : creation a variable Function f=(n1,n2,add/multiply ,,){return x or doesn't return anything ,,}
+**for the call in an arguemt with class constructor: we shlouldn't add the parenthesis with the function , and for the manilulation :
+ className.FunctionName=> Fction name
+ className.FunctionName()=> Fction behavior
+--Slider Widget [you can choose the value Graphicly [BMI ]]
+--Convert int=>double :: toDouble(),
+--double.round():: round to an integer
+--setState((){}); must be in his class
+--to change the details of the slider [thumbcolors/shape(//size) ..] , we need to embaded the slider widget by SliderTheme and in his ppte data , while the SliderThemeData need all his component/ppte[like an java Interface ] , we just use SliderTheme.of(context).copyWith(ppte the we want change )==> for the .of(context) it means that it extends just all ppte from the latest buildContext wich is in the widget build  that return your current UI .
+ --themedata is soo rich in custumising our App, you can make your own ppte theme easly
+--if you want just to use a Stack datastructure for the Navigation between routes[cad pages] , you should use the two actions [usely in a Button] :  *Navigator.push(context,MaterialPageRoute(builder: (context){
+                  return DicePageState();
+                }));
+* Navigator.pop(context);//for Poping
+--for more precision : =>*;  egale a {return*;}
+--& if its a complexe routes => 
+we use map datastucture in a routes  ppte in materialApp Exple : 
+routes: {
+        'Our':(context)=>InputPage(),
+        '/': (context)=> TestResult(),
+      },
+and we should have in Place Of home ptte => initialRoute: 'Our',//the key Of the Page
+=> an for calling the others Pages => Navigator.pushNamed(context, 'Our');
+--declaring a map :
+Map<keyType,ValueType/*if you want to specify*/> mapName {
+Key:Value , **}
+**calling it : mapName[Key]
+--if we try to acced to an value by a key that doesn't exist > we will find null , so we can anytime chek the existance of any Value
+--add an ather element : 
+mapName[newKey]=newValue
+--map inordered dataType, we have some methodes like .length , .keys ,.values ,
+--dart gives us the possibility to declar an dataType outside any class 
+--for passing data over Pages/Routes , we sould passing it by the constructor of pages/classes at the level of the Navigator,
+--BMI was soo helpful for me , I learned a lot of things[theme costumizing/pass fct overs argumets ..]
+--one of useful args of scaffold : debugShowCheckedModeBanner: false,
+instead of flutter inspector>more options>hide debug mode banner
+--if you use one materialApp widget at only the main , and other pages are only scaffold => the theme applicated is one in the materialaApp
+--Geolocation :
+**geolocator: ^3.0.1 in dependencies
+**import 'package:geolocator/geolocator.dart';
+**call a fct that will assign to a string your coords
+**
+--asynchronous Programming[doing thing while others thing is also in execution] Vs Synchronous [one task has his own time /sequencial Programming]
+--Futures in dart is the same as promises in JS
+--dart Futures , Async & await are sooo imporatant in terme of reloading data manipulation : Future is like a recit of : you will have this data once it's ready for you
+--we could specify the data Type of a Future by: Future<String>
+--Widget Life cycle on stateful type : 
+**initState() //caled once when the widget was born ;
+**build : called anytime the build core is changed !
+**deactivate() : at the end of widget's life
+--handeling exceptions by try{} catch(e){}
+--double.parse(String);
+--checking if a parametre p set on null => if it is not null use it ; else use a default value d :: 
+p ?? d //on one line of code  by the null aware operator : '??'
+--I'am so surprised that we can do in a build method :
+try{
+return scaffold(**)
+}
+catch(e){
+return scaffold(***)
+}
+--throw Exception[predefinie] or throw String => is a  way to throw an exception in certain personnalised conditions
+******PS*******
+--canva => tempelate
+--couleur harmoniques 
+--in desing => li kaykhedmou fih les journaux [aussi pour latex]...
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+
+
+
+
+
+last one 11 
+##########
+https://www.taalimi.info/p/blog-page_25.html
+
+http://www.imti7anati.com/2019/08/2018-primaire.html
+
+http://www.imti7anati.com/2018/11/2019.html
+
+ Actif avec une Bonne Esprit d'Analyse 
+ Ambitieux 
+ Capacite d’adaptation
+ Travail en équipe.
+
+##########
+
+idee pour changer l'odeur de dichet
+https://www.fishfish.fr/articles/fabriquer-son-engrais-liquide-pour-aquarium-d-eau-douce
+######
+enactus plus
+growthfounding
+########
+tlaja bla daw
+scorption defender braclet
+✅✅bayt chahbouna=> tabaxir or me7baq angrai {Biosprout}
+test my drink
+douch b led
+face masks
+filtre d'eau sable ,,, ⌛⏳
+@@@@@@@@@@@
+sabon bio delqxou3
+tissu antibacterie {hachem , qui peut etre fait avec freedge}
+recyclage des masques
+filtrage d'eau
+nourdine : iot {machine qui mache+ leur puissance sur UI mobile }
+✅✅algues chaimaae ouarab=)mm3a biosprout angrais antiinsect ,,,
+✅✅qchouur dela7 + lma dedella7
+✅✅polyphenol => men dechets d zaytoun
+kayssa3ed 3la eviter l'agression de plantes 
+europeine: medicale
+dhe system
+
+Mine: 
+taux de retour sur l'investissement 
+cout de revient 
+canaux de distribution[ditribuable]/segment client[qaxxad]
+✅✅calcule complete de biosprout 
+
+
+feutre =3ineb .... au lieu de tabaxir haxem
+
+#1 Fiverr.
+#2 5euros.com.
+#3 People per Hour.
+#4 Upwork.
+#5 99designs.
+#6 Codeur.com.
+https://independant.io/plateforme-freelance/
+
+
+transformation d'un projet vers un entreprise (procedures de A--Z)
+https://mbasic.facebook.com/watch/?v=877206106132123&_rdr
+07 08 25 95 39
+
+j'ai enlever noplace men bd , w baghi db a chaque fois l'avion graphics tet7all nejbar les bouton de chaque place reservee red , donc kayen une fct li kan3aytola f rass 
+------
+well intelligence Emotionnel 
+bonne chose fiya ? lhanan dyali
+bonne chose fik ?  lbara2a delmaxa3ir
+mauvaise chose fiya ? sor3a felqararat w lhadra 3la lfraq
+mauvaise chose fik ? qillat lghira
+----------
+tawaqo3at w l2intidarat dyalek menni ?
+same ?
+----------
+niqat lwa3ra fel3alaqa ? be positive te get positivite ?
+----------
+concentrate more on positivite f moli
+----------
+on share what we have , maxi kankemlo ba3tna w sinon hna naqssine .. 
+=> hna khessna net7akmo felmaxa3er dyanna , w sinon hna li mes2ouline ,, donc maxi ana li mes2ool 3la ta3assa dyalk ,, ms ana khtit w tn khtarti tet3assb => n3edroo ba3tna w nre7mo ba3tna 
+------------
+try{more just from your side ,vue from her side, and also, be neutre }
+-----------
+lmobadara { gher nfekar annani xeni khessni ne3mel bax tkon l3alaqa bikher ,, donc deja lmobadara 3la janib wahid }
+-----------
+our action will be our future  !!! 
+----------
+zwaji makhessoux ykon hayda !! 
+hna deja khessna nkono flexible , ra kayen hajat li khessoum yetsel7o w nhedro fihoum netfahmo 3lihoum ,,, 
+----------
+madbetxi l2infi3al dyali may qoltla nzowel fb 
+----------
+khess maxakilna nholohom felwa3y w note f la wa3y [time] => irhaq bla  manhissou 
+----------
+programme ma3a l2osra [tawafoq zawaji => daka2 3atifi }
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+Swt [ibem interface grafique]
+import java.sql.*;  
+class OracleCon{  
+ public static void main(String args[]){  
+  try{  
+   //step1 load the driver class  
+   Class.forName("oracle.jdbc.driver.OracleDriver");  
+  
+   //step2 create  the connection object  
+   Connection con=DriverManager.getConnection(  
+   "jdbc:oracle:thin:@localhost:1521:xe","system","oracle");  
+  
+   //step3 create the statement object  
+   Statement stmt=con.createStatement();  
+  
+   //step4 execute query  
+   ResultSet rs=stmt.executeQuery("select * from emp");  
+   while(rs.next())  
+   System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
+     
+   //step5 close the connection object  
+   con.close();  
+  
+  }catch(Exception e){ 
+   System.out.println(e);
+  }  
+  
+ }  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+eplf [uml -- conception] --------------
+java--j2e ---------- 
+VI -> ??
+losera university
+
+
+
+gestion d'utilisateur log in , sing in[que pour les voyageur , not admin ] 
+et admin peut cree compte admin ou voyageur
+getion de vol
+gestion d'avion
+getion de reservation
+admin choisit un  date , vol ,
+id builelt = f(jours , id vol,i++)
+un voyageur peut changer le voyage ;
+
+
+
+
+
+exo2 serie 4 :
+personne/utilisateur/profile classes
+utilisat herite de personne
+profile est indep de utilisateur MAIS utilisateur a un profile p COMME ATTRIBUT 
+ plusieurs == * [ se dessine : classe A *----> classe B ]
+
+
+exo3=classe abtraite chape+ notre classe 
+point
+exo 4 class abst animale > abstrai domestique [att ribut date]> classe age {pour calculer age (heritage + date)}
+NB: A partir de Java 8, une interface peut fournir une implémentation par défaut pour une méthode. Les classes qui réalisent l'interface peuvent redéfinir ou pas cette méthode. Si elles ne la redéfinissent pas, c'est la méthode donnée dans l'interface qui sera invoquée par les classes appelantes.
+
+
+
+
+
+"char li kat3arfo hssen men lkher li makat3arfoux" soft skills
+3lax ya ghzaali 
+just give me a reason : song
+7ayati koloha lillah 
+Cmd Compilation C: apres cd rep 
+                           gcc *.c -o prog
+                  [il donne les erreur s'ils existent]
+Cmd Execution C : prog
+** comment afficher la langue arabe dans codeblocks
+**difference etre retour ligne \n et retour chariot \r
+
+
+
+
+1) enfaîte pour votre question dans le petit contrôle , j'ai croit qu'on parle seulement des liste simple chaînées et on a manques quelque chose plus que la déclaration de l'adresse du dernier , et non pas des vrais différences entre l'insertion dans LC VS LDC , et j'avais noter  dans le cours la remarque concernant le nombre des MAJ (4 VS 2) [SLIDE 27] ;  seulement pour ne pas prendre une mauvaise impression de ma réponse .
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+
+
+
+
+⛔⛔black hack forum //intressting website
+j'ai pas vraiment compris pq on fait une meth/var static ou abstrait,
+###
+de Asmae EL KASSIRI à Tous les participants :
+javac -d . class1.java class2.java
+de Asmae EL KASSIRI à Tous les participants :
+java nomPackage class2
+EX TABLKEAU DE JAVA INTERRESSANT
+⛔⛔Ex3TP5 est difficile !! a refaire !!
+java -version
+>sqlplus
