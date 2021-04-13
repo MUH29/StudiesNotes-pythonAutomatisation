@@ -1,4 +1,32 @@
+/////Note Spring :
+controleur jee > se traduit en servlet 
+[qui etend HttpServlet pour pouvoir traiter les requette http , abec la methode service() pour les proposer [get post ,,]]
+on n'envoie que doGet() from the url
+la vue aussi est une servlet 
+sispasher=une forward=servlet qui communique(delegue) avec une autre
 
+
+couplage faible = class implemente interface 
+injection de dependance== with xml ,,
+inversion de controle == on doone le controle de cration des objet et le comportement avec eux 
+framwork de jornalisation == log ==log4j(framwork usee par spring [message de jornalisation])
+private Logger logger=Logger.getLogger(this.getClass());
+logger.info("Hello");//like syst.out , et dans log.xml , on specifie ou on log ..
+//programmation par reflexion [sans framwork]
+//config.txt 
+new => instanciation statique => pb de maintenace [si on change la classe ,,,] 
+instanciation Dynamique => Class > charger la class dans la memoire [avec que son nom] 
+=> 
+Class c1=Class.forName(String ClassNom);//ClassNom vient du lecture de config.text (on peut facilement changer le nom de la class) [maintenace]
+Class c1=(Class) c1.newInstance();
+//obligatoirement lorsque on a des constr sans parametres  //that's why all framworks obligate us to use a  default constructor
+https://www.youtube.com/watch?v=RKgSU-NW9I0&list=RDCMUCCwIYNpQVHZTd3Vx_krnmdA&index=3
+45:00 lfor
+//on l'utilise par ex pour charger les pilotes dans jdbc
+
+couche dao=> responsable sur Liason entre la couche metier et les data (jdpc , db )
+
+https://en.wikipedia.org/wiki/Java_logging_framework
 
 -----------------------
 https://www.learningcrux.com/video/the-complete-2020-web-development-bootcamp/32/2
@@ -593,10 +621,11 @@ Cmd Execution C : prog
 
 
 
+///////Reseau
+Nat=protocole de conversion d'adress privee vers public , pur pouvoir sortir du reseau
 
-
-
-
+pour la class A , on a deja deux adress particulier reservee , le 0 par tout ,
+qui marque le reseau lui meme , et donc 
 
 
 
