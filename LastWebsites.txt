@@ -1,0 +1,7 @@
+https://www.youtube.com/watch?v=m4t0pmlQUbU&list=PLZdfbI_OZWAMvhSl32tFcD6M9x_Pqtkwb&index=4
+https://www.youtube.com/watch?v=5qap5aO4i9A
+https://stackoverflow.com/questions/49377363/how-to-send-request-to-server-with-reactjs
+https://github.com/Rinlama/CustomerAppSpringBoot
+https://spring.io/guides/tutorials/react-and-spring-data-rest/
+https://dzone.com/articles/integrating-spring-boot-and-react-with-spring-secu-1
+https://www.youtube.com/watch?v=IU2G6evtTbw&list=PLxnmNhAZjt7wHyMuaqkjXzKBBwAiCxIR7&index=5
