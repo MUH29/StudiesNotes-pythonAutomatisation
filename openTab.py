@@ -2,7 +2,7 @@ import webbrowser
 # https://docs.python.org/3/library/webbrowser.html
 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 webbrowser.get(chrome_path).open('http://docs.python.org/')
-file=open('LastWebsites.txt','r')
+file=open('ChromeHistory.txt','r')#LastWebsites
 for elt in file:
     webbrowser.open_new(elt)
     print(elt)
