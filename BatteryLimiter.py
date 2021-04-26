@@ -19,7 +19,11 @@ notifier = ToastNotifier()
 while(True):
 	battery = psutil.sensors_battery()
 	#if the battery is detected
-	if(battery != None):
+	#psutil.sensors_battery()
+	# sbattery(percent=0.0, secsleft=-1, power_plugged=None)
+	print(psutil.sensors_battery().power_plugged)
+	# None
+	if(battery != None and psutil.sensors_battery().power_plugged):
 		percent = battery.percent
 		print(percent)
 		if(percent> 90):
