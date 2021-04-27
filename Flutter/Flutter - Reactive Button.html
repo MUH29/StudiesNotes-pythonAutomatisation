@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://www.didierboelens.com/fr/2018/09/reactive-button/ -->
+<html lang="fr" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="msvalidate.01" content="030ED41C6D336330C8756B82D9CAE9B0">
+    <meta name="generator" content="Hugo 0.38">
+    <title>Flutter - Reactive Button</title>
+    <meta name="author" content="Didier Boelens">
+    <meta name="keywords" content="reactive, programming, overlay, bloc pattern, facebook, reaction button, rxDart, gesturedetector, didier, boelens, flutter, IT, consultant, boeledi">
+
+    <link rel="icon" href="https://www.didierboelens.com/favicon.png">
+    
+
+    
+    
+      <link rel="alternate" hreflang="en" href="https://www.didierboelens.com/2018/09/reactive-button/">
+    
+
+    
+    <meta name="description" content="Flutter - Cet article explique comment reproduire le bouton réaction de Facebook, utilisant Reactive Programming, Overlay, Animation, Streams, BLoC Pattern et GestureDetector.
+
+Difficulté: Intermédiaire
+">
+    <meta property="og:description" content="Flutter - Cet article explique comment reproduire le bouton réaction de Facebook, utilisant Reactive Programming, Overlay, Animation, Streams, BLoC Pattern et GestureDetector.
+
+Difficulté: Intermédiaire
+">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Flutter - Reactive Button">
+    <meta property="og:url" content="https://www.didierboelens.com/fr/2018/09/reactive-button/">
+    <meta property="og:site_name" content="Didier Boelens">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Didier Boelens - Flutter">
+    <meta name="twitter:description" content="Flutter - Cet article explique comment reproduire le bouton réaction de Facebook, utilisant Reactive Programming, Overlay, Animation, Streams, BLoC Pattern et GestureDetector.
+
+Difficulté: Intermédiaire
+">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://www.didierboelens.com/images/moi.jpg">
+    
+
+    
+      <meta property="og:image" content="https://www.didierboelens.com/images/reactive_button.gif">
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="./Flutter - Reactive Button_files/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Flutter - Reactive Button_files/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Flutter - Reactive Button_files/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous">
+    
+    
+    <link rel="stylesheet" href="./Flutter - Reactive Button_files/bootstrap4.css">
+    <link rel="stylesheet" href="./Flutter - Reactive Button_files/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css">
+    <style>
+      .dropdown-item {font-size: 1.4em;}
+    </style>
+    
+    
+
+    
+      
+<script async="" src="./Flutter - Reactive Button_files/analytics.js.téléchargé"></script><script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-117749913-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+
+    <script>
+        function initImages() {
+        var imgDefer = document.getElementsByTagName('img');
+        for (var i=0; i<imgDefer.length; i++) {
+        if(imgDefer[i].getAttribute('data-src')) {
+        imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
+        } } }
+        window.onload = initImages;
+      </script>
+  <script src="./Flutter - Reactive Button_files/embed.js.téléchargé" data-timestamp="1579268930429"></script><style type="text/css">:root topadblock, :root input[onclick^="window.open('http://www.FriendlyDuck.com/"], :root img[alt^="Fuckbook"], :root iframe[src^="http://static.mozo.com.au/strips/"], :root iframe[src^="http://cdn2.adexprt.com/"], :root iframe[id^="google_ads_iframe"], :root header#hdr + #main > div[data-hveid], :root div[id^="zergnet-widget"], :root div[id^="traffective-ad-"], :root div[id^="sticky_ad_"], :root div[id^="q1-adset-"], :root div[id^="proadszone-"], :root div[id^="mainads"], :root div[id^="lazyad-"], :root div[id^="google_dfp_"], :root div[id^="google_ads_iframe_"], :root div[id^="drudge-column-ads-"], :root div[id^="dmRosAdWrapper"], :root a[href^="http://at.atwola.com/"], :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root div[id^="div-ads-"], :root a[data-obtrack^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://www1.clickdownloader.com/"], :root div[id^="cns_ads_"], :root div[id^="advt-"], :root a[href^="http://www.myfreecams.com/?co_id="][href*="&track="], :root div[id^="advads-"], :root #\5f _admvnlb_modal_container, :root div[id^="adspot-"], :root input[onclick^="window.open('http://www.friendlyduck.com/"], :root div[id^="ads300_250-widget"], :root div[id^="ads250_250-widget"], :root div[id^="ads120_600-widget"], :root div[id^="adrotate_widgets-"], :root div[id^="adfox_"], :root div[id^="ad_script_"], :root div[id^="ad_rect_"], :root #content > #right > .dose > .dosesingle, :root div[id^="ad_bigbox_"], :root div[id^="ad-server-"], :root div[id^="acm-ad-tag-"], :root div[id^="ADV-SLOT-"], :root div[data-native_ad], :root a[href^=" http://n47adshostnet.com/"], :root div[data-id^="CarouselPLA-"] > .kzwEHf, :root div[class^="proadszone-"], :root div[class^="pane-google-admanager-"], :root a[href^="http://adultgames.xxx/"], :root a[href^="http://semi-cod.com/clicks/"], :root div[class^="index_displayAd_"], :root a[href^="http://www.affbuzzads.com/affiliate/"], :root div[class^="index_adBeforeContent_"], :root div[class^="index_adAfterContent_"], :root iframe[src^="http://cdn1.adexprt.com/"], :root a[href^="http://dwn.pushtraffic.net/"], :root div[class^="hp-ad-rect-"], :root div[class^="block-openx-"], :root div[class^="ads-partner-"], :root div[class^="ad_position_"], :root div[class^="ad_border_"], :root a[href^="http://adprovider.adlure.net/"], :root div[class^="Ad__container"], :root div[id^="div-adtech-ad-"], :root div[class*="_AdInArticle_"], :root div > [class][onclick*=".updateAnalyticsEvents"], :root a[href^="http://internalredirect.site/"], :root bottomadblock, :root a[href^="https://watchmygirlfriend.tv/"], :root a[href^="http://2pxg8bcf.top/"], :root aside[itemtype="https://schema.org/WPAdBlock"], :root a[href^="http://c.actiondesk.com/"], :root aside[id^="div-gpt-ad"], :root div[id^="ad-cid-"], :root a[href^="http://lp.ezdownloadpro.info/"], :root a[href^="http://uploaded.net/ref/"], :root aside[id^="advads_ad_widget-"], :root aside[id^="adrotate_widgets-"], :root a[style="display:block;width:300px;min-height:250px"][href^="http://li.cnet.com/click?"], :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[href^="http://popup.taboola.com/"], :root a[href^="//adbit.co/?a=Advertise&"], :root a[onmousedown^="this.href='/wp-content/embed-ad-content/"], :root div[class^="AdhesionAd_"], :root div[class^="Ad__bigBox"], :root div[role="navigation"] + c-wiz > script + div > .kxhcC, :root a[onclick*="//m.economictimes.com/etmack/click.htm"], :root a[href^="https://www.what-sexdating.com/"], :root a[href^="https://www.travelzoo.com/oascampaignclick/"], :root a[href^="https://www.share-online.biz/affiliate/"], :root a[href^="https://www.securegfm.com/"], :root a[href^="http://adserver.adtech.de/"], :root a[href^="https://www.mrskin.com/tour"], :root div[id^="advads_"], :root a[href^="https://www.moscarossa.biz/"], :root a[href^="http://www.usearchmedia.com/signup?"], :root a[onmousedown^="this.href='http://staffpicks.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[href^="https://www.incontri-matura.com/"], :root a[href^="https://www.goldenfrog.com/vyprvpn?offer_id="][href*="&aff_id="], :root .trc_related_container div[data-item-syndicated="true"], :root a[href^="https://www.firstload.com/affiliate/"], :root a[href^="https://www.clicktraceclick.com/"], :root a[href^="https://www.camyou.com/?cam="][href*="&track="], :root a[href^="https://www.bebi.com"], :root a[href^="https://www.adskeeper.co.uk/"], :root a[href^="http://pan.adraccoon.com?"], :root div[id^="ad-gpt-"], :root a[href^="http://farm.plista.com/pets"], :root a[href^="https://windscribe.com/promo/"], :root a[href^="http://serve.williamhill.com/promoRedirect?"], :root a[href^="https://vodexor.us/"], :root div[id^="tms-ad-dfp-"], :root a[href^="https://trust.zone/go/r.php?RID="], :root a[href^="https://track.adform.net/"], :root a[href^="https://traffic.bannerator.com/"], :root a[href^="https://tracking.truthfinder.com/?a="], :root a[href^="https://www.adultempire.com/"][href*="?partner_id="], :root a[href^="https://track.healthtrader.com/"], :root a[href^="https://track.clickmoi.xyz/"], :root a[href^="https://track.afftck.com/"], :root a[href^="https://control.trafficfabrik.com/"], :root a[href^="https://track.52zxzh.com/"], :root div[class^="gemini-ad"], :root a[href^="http://pwrads.net/"], :root a[href^="//oardilin.com/"], :root a[href^="https://torguard.net/aff.php"], :root a[href^="http://tour.affbuzzads.com/"], :root a[href^="https://tc.tradetracker.net/"], :root a[href^="https://t.mobtya.com/"], :root div[id^="ad_head_celtra_"], :root a[href^="https://t.grtyi.com/"], :root aside[id^="tn_ads_widget-"], :root a[href^="https://syndication.exoclick.com/splash.php?"], :root div[id^="YFBMSN"], :root div[id^="ad-div-"], :root a[href^="https://secure.eveonline.com/ft/?aid="], :root a[href^="https://rev.adsession.com/"], :root a[href^="https://retiremely.com/"], :root div[id^="yandex_ad"], :root a[href^="http://y1jxiqds7v.com/"], :root a[href^="https://www.pornhat.com/"][rel="nofollow"], :root AD-SLOT, :root a[href^="http://green.trafficinvest.com/"], :root a[href^="https://pubads.g.doubleclick.net/"], :root a[href^="https://prf.hn/click/"][href*="/adref:"], :root a[href^="https://mk-cdn.net/"], :root a[href^="https://mk-ads.com/"], :root a[href^="https://jmp.awempire.com/"], :root a[href^="https://members.linkifier.com/public/affiliateLanding?refCode="], :root a[href^="https://medleyads.com/"], :root div[id^="ads300_100-widget"], :root a[href^="https://click.plista.com/pets"], :root a[href^="https://lingthatsparleso.info/"], :root a[href*=".approvallamp.club/"], :root a[href^="https://landing1.brazzersnetwork.com"], :root a[href^="https://land.rk.com/landing/"], :root .lads[width="100%"][style="background:#FFF8DD"], :root a[href^="https://land.brazzersnetwork.com/landing/"], :root a[href^="https://incisivetrk.cvtr.io/click?"], :root a[href^="https://iactrivago.ampxdirect.com/"], :root a[href^="https://googleads.g.doubleclick.net/pcs/click"], :root a[href^="http://cdn.adstract.com/"], :root a[href^="https://gogoman.me/"], :root a[href^="https://go.stripchat.com/"][href*="&campaignId="], :root a[href*=".inclk.com/"], :root a[href^="https://go.ad2up.com/"], :root a[href^="https://freeadult.games/"], :root a[href^="//nlkdom.com/"], :root a[onmousedown^="this.href='http://staffpicks.outbrain.com/network/redir?"][target="_blank"], :root a[href^="https://fonts.fontplace9.com/"], :root a[href^="http://clkmon.com/adServe/"], :root a[href^="https://flirtaescopa.com/"], :root a[href^="https://evaporate.pw/"], :root [lazy-ad="leftthin_banner"], :root a[href^="https://dynamicadx.com/"], :root a[href^="http://wxdownloadmanager.com/dl/"], :root div[class^="local-feed-banner-ads"], :root .GFYY1SVE2 > .GFYY1SVD2 > .GFYY1SVG5, :root a[href^="https://djtcollectorclub.org/"][href*="?affiliate_id="], :root a[href^="https://chaturbate.xyz/"], :root a[href^="https://chaturbate.jjgirls.com/"][href*="?tour="], :root a[href^="https://chaturbate.com/in/?tour="], :root a[href^="https://chaturbate.com/affiliates/"], :root a[href^="http://www.1clickdownloader.com/"], :root a[href^="https://www.googleadservices.com/pagead/aclk?"], :root a[href^="https://awentw.com/"], :root a[href^="https://servedbyadbutler.com/"], :root a[href^="https://betway.com/"][href*="&a="], :root a[href^="http://dethao.com/"], :root a[href^="https://ads.ad4game.com/"], :root a[href^="https://affiliates.bet-at-home.com/processing/"], :root a[href*="pussl3.com"], :root a[href^="https://adswick.com/"], :root ADS-RIGHT, :root .GKJYXHBF2 > .GKJYXHBE2 > .GKJYXHBH5, :root a[href^="https://adserver.adreactor.com/"], :root a[href^="https://refpaano.host/"], :root a[href^="https://meet-to-fuck.com/tds"], :root a[href^="http://data.linoleictanzaniatitanic.com/"], :root a[href^="https://adhealers.com/"], :root a[href^="https://adclick.g.doubleclick.net/"], :root a[href^="https://ad.doubleclick.net/"], :root a[href^="http://zevera.com/afi.html"], :root a[href^="http://go.oclaserver.com/"], :root a[href^="https://ad.atdmt.com/"], :root .trc_rbox .syndicatedItem, :root a[href^="https://aaucwbe.com/"], :root a[href^="https://a.adtng.com/"], :root a[href^="http://xtgem.com/click?"], :root a[href^="https://ads.trafficpoizon.com/"], :root a[href^="http://rekoverr.com/"], :root a[href^="https://chaturbate.com/in/?track="], :root a[href^="http://www.zergnet.com/i/"], :root a[href^="http://hyperies.info/"], :root a[href^="http://galleries.pinballpublishernetwork.com/"], :root a[href^="http://www.torntv-downloader.com/"], :root a[href^="http://www.tirerack.com/affiliates/"], :root div[class^="AdBannerWrapper-"], :root a[href^="http://www.text-link-ads.com/"], :root a[href^="http://www.streamate.com/exports/"], :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"], :root a[href^="http://www.sfippa.com/"], :root a[href^="http://www.xmediaserve.com/"], :root a[href^="http://www.sex.com/videos/?utm_"], :root a[href^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://www.sex.com/?utm_"], :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"], :root a[href^="http://www.roboform.com/php/land.php"], :root a[href^="http://secure.signup-page.com/"], :root a[href^="http://www.quick-torrent.com/download.html?aff"], :root a[href^="http://adexprt.me/"], :root a[href^="http://www.pinkvisualgames.com/?revid="], :root a[href^="https://trklvs.com/"], :root a[href^="http://www.paddypower.com/?AFF_ID="], :root div[data-spotim-slot], :root a[href^="http://www.freefilesdownloader.com/"], :root a[href^="http://www.mysuperpharm.com/"], :root .trc_rbox_border_elm .syndicatedItem, :root a[href^="http://www.myfreepaysite.com/sfw_int.php?aid"], :root a[href^="http://www.myfreepaysite.com/sfw.php?aid"], :root .rhsvw[style="background-color:#fff;margin:0 0 14px;padding-bottom:1px;padding-top:1px;"], :root a[href^="http://www.moneyducks.com/"], :root a[href^="http://bcntrack.com/"], :root a[href^="http://www.securegfm.com/"], :root a[href^="http://www.liversely.net/"], :root a[href^="http://www.linkbucks.com/referral/"], :root a[href^="//88d7b6aa44fb8eb.com/"], :root a[href^="http://www.ireel.com/signup?ref"], :root a[href*="=Adtracker"], :root a[href^="http://www.incredimail.com/?id="], :root a[href^="http://www.idownloadplay.com/"], :root a[href^="http://www.hitcpm.com/"], :root a[href^="http://www.gamebookers.com/cgi-bin/intro.cgi?"], :root div[id^="div_openx_ad_"], :root a[href^="http://www.friendlyquacks.com/"], :root a[href^="https://www.financeads.net/tc.php?"], :root a[href^="http://www.friendlyduck.com/AF_"], :root a[href*="emprestimo.eu"], :root a[href^="http://www.fpcTraffic2.com/blind/in.cgi?"], :root a[href^="http://www.fonts.com/BannerScript/"], :root a[href^="http://www.fleshlight.com/"], :root a[href^="http://www.flashx.tv/downloadthis"], :root .trc_rbox_div a[target="_blank"][href^="http://tab"], :root a[href^="https://americafirstpolls.com/"], :root a[href^="http://clickserv.sitescout.com/"], :root a[href^="http://www.firstload.de/affiliate/"], :root a[href^="http://www.twinplan.com/AF_"], :root a[href^="http://www.fducks.com/"], :root a[href^="http://marketgid.com"], :root a[href^="http://www.faceporn.net/free?"], :root a[href^="http://www.epicgameads.com/"], :root a[href^="http://www.easydownloadnow.com/"], :root a[href^="http://www.duckssolutions.com/"], :root a[href^="https://go.trkclick2.com/"], :root a[href^="http://www.duckcash.eu/"], :root a[href^="http://go.seomojo.com/tracking202/"], :root a[href^="http://www.downloadweb.org/"], :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > .vci, :root a[href^="http://www.installads.net/"], :root div[role="navigation"] + c-wiz > div > .kxhcC, :root a[href^="http://www.download-provider.org/"], :root a[href^="http://www.down1oads.com/"], :root a[href^="https://trafficmedia.center/"], :root a[href^="http://www.dealcent.com/register.php?affid="], :root .rscontainer > .ellip, :root a[href^="http://www.clkads.com/adServe/"], :root a[href^="http://www.clickansave.net/"], :root div[class^="adpubs-"], :root a[href*="deliver.trafficfabrik.com"], :root a[href^="http://www.cash-duck.com/"], :root a[href^="http://www.bitlord.me/share/"], :root a[href^="http://www.bet365.com/"][href*="?affiliate="], :root a[href^="http://www.bet365.com/"][href*="&affiliate="], :root a[href^="http://www.badoink.com/go.php?"], :root #mbEnd[cellspacing="0"][cellpadding="0"], :root div[data-ad-underplayer], :root a[href^="http://www.richducks.com/"], :root a[href^="http://www.babylon.com/welcome/index?affID"], :root a[href^="http://www.sexgangsters.com/?pid="], :root a[href^="http://www.amazon.co.uk/exec/obidos/external-search?"], :root a[href^="https://ads-for-free.com/click.php?"], :root a[href^="http://tracker.mybroadband.co.za/"], :root a[href^="http://www.socialsex.com/"], :root a[href^="https://www.camsoda.com/enter.php?id="], :root a[href^="http://www.afco2go.com/srv.php?"], :root a[href^="http://go.ad2up.com/"], :root a[href^="https://badoinkvr.com/"], :root a[href*="/adServe/banners?"], :root a[href^="http://www.adxpansion.com"], :root .plistaList > .itemLinkPET, :root a[href^="http://www.adbrite.com/mb/commerce/purchase_form.php?"], :root a[href^="http://www.adultdvdempire.com/?partner_id="][href*="&utm_"], :root a[href^="http://www.ragazzeinvendita.com/?rcid="], :root a[href^="http://www.TwinPlan.com/AF_"], :root #rhs_block .mod > .gws-local-hotels__booking-module, :root a[href^="http://www.my-dirty-hobby.com/?sub="], :root a[href^="https://porndeals.com/?track="], :root a[href^="http://www.affiliates1128.com/processing/"], :root a[href^="http://c.jumia.io/"], :root a[href^="http://www.1clickmoviedownloader.info/"], :root div[class^="adbanner_"], :root a[href^="http://www.brightwheel.info/"], :root a[href^="https://www.iclwy.xyz/"], :root a[href^="http://www.123-reg.co.uk/affiliate2.cgi"], :root div[itemtype="http://www.schema.org/WPAdBlock"], :root a[href^="http://wopertific.info/"], :root a[href^="http://bodelen.com/"], :root a[href^="http://wgpartner.com/"], :root a[href^="http://webgirlz.online/landing/"], :root div[id^="ads300_600-widget"], :root div[class^="Ad__adContainer"], :root a[href^="http://web.adblade.com/"], :root div[class^="BlockAdvert-"], :root a[href^="https://go.onclasrv.com/"], :root a[href^="http://wct.link/"], :root a[href^="https://topoffers.com/"][href*="/?pid="], :root a[href^="http://vinfdv6b4j.com/"], :root a[href^="http://s9kkremkr0.com/"], :root a[href^="https://www.nutaku.net/signup/landing/"], :root a[href^="http://us.marketgid.com"], :root a[href^="http://ul.to/ref/"], :root a[href^="http://trk.mdrtrck.com/"], :root a[href*=".ichlnk.com/"], :root div[id^="div_ad_stack_"], :root a[href^="http://traffic.tc-clicks.com/"], :root div[class^="awpcp-random-ads"], :root a[href^="http://www.graboid.com/affiliates/"], :root a[href^="http://tracking.toroadvertising.com/"], :root a[href^="http://www.liutilities.com/"], :root a[href^="http://www.dl-provider.com/search/"], :root a[href^="http://tracking.deltamediallc.com/"], :root a[href^="http://adultfriendfinder.com/p/register.cgi?pid="], :root a[href^="https://www.popads.net/users/"], :root iframe[src^="http://ad.yieldmanager.com/"], :root a[href^="http://pubads.g.doubleclick.net/"], :root a[href^="https://sexdatingz.live/"], :root a[href^="//bwnjijl7w.com/"], :root a[href^="https://adultfriendfinder.com/go/page/landing"], :root a[href^="http://tracking.crazylead.com/"], :root a[href^="http://track.adform.net/"], :root a[href^="https://iac.ampxdirect.com/"], :root a[href^="http://t.mdn2015x3.com/"], :root a[href^="http://steel.starflavor.bid/"], :root a[href^="http://galleries.securewebsiteaccess.com/"], :root a[href^="http://stateresolver.link/"], :root a[href^="http://sharesuper.info/"], :root a[href^="https://awecrptjmp.com/"], :root a[href^="http://server.cpmstar.com/click.aspx?poolid="], :root [onclick^="window.open('http://adultfriendfinder.com/search/"], :root a[href^="http://secure.hostgator.com/~affiliat/"], :root a[href*="/cmd.php?ad="], :root a[href^="http://refpaano.host/"], :root #\5f _mom_ad_2, :root a[href^="http://ads.sprintrade.com/"], :root a[href^="http://record.commissionking.com/"], :root div[class*="-storyBodyAd-"], :root a[href^="http://record.betsafe.com/"], :root a[href^="https://keep2share.cc/pr/"], :root a[href^="https://clixtrac.com/"], :root [onclick*="content.ad/"], :root a[href^="http://adlev.neodatagroup.com/"], :root a[href^="http://reallygoodlink.extremefreegames.com/"], :root .ob_container .item-container-obpd, :root a[href^="http://www.adskeeper.co.uk/"], :root a[href^="http://websitedhoome.com/"], :root a[href^="http://see-work.info/"], :root a[href^="http://prousa.work/"], :root a[href^="http://promos.bwin.com/"], :root a[href^="http://prochina.link/"], :root a[href*=".irtyc.com/"], :root a[href^="http://z1.zedo.com/"], :root a[href^="http://pokershibes.com/index.php?ref="], :root #rhs_block .mod > .luhb-div > div[data-async-type="updateHotelBookingModule"], :root a[href^="http://mojofun.info/"], :root a[href^="http://mmo123.co/"], :root a[href^="https://www.oboom.com/ref/"], :root a[href^="http://media.paddypower.com/redirect.aspx?"], :root a[href^="http://allaptair.club/"], :root #rhs_block .xpdopen > ._OKe > div > .mod > ._yYf, :root a[href^="//ads.ad-center.com/"], :root a[href^="https://track.trkinator.com/"], :root a[data-redirect^="this.href='http://paid.outbrain.com/network/redir?"], :root div[id^="ad-position-"], :root a[href^="http://liversely.com/"], :root a[href^="https://www.arthrozene.com/"][href*="?tid="], :root a[href^="http://feeds1.validclick.com/"], :root a[href^="http://latestdownloads.net/download.php?"], :root a[href^="http://k2s.cc/code/"], :root #topstuff > #tads, :root a[href*=".bang.com/"][href*="&aff="], :root a[data-widget-outbrain-redirect^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://join3.bannedsextapes.com/track/"], :root a[href^="https://secure.bstlnk.com/"], :root a[href^="http://jobitem.org/"], :root a[href^="https://gamescarousel.com/"], :root a[href^="http://istri.it/?"], :root a[href^="http://www.fbooksluts.com/"], :root a[href^="http://www.cdjapan.co.jp/aff/click.cgi/"], :root a[href^="//api.ad-goi.com/"], :root a[href*="//ridingintractable.com/"], :root a[href^="http://intent.bingads.com/"], :root div[id^="crt-"][style], :root a[href^="http://igromir.info/"], :root a[href^="https://track.themadtrcker.com/"], :root a[href^="http://hyperlinksecure.com/go/"], :root a[href^="http://45eijvhgj2.com/"], :root a[href^="http://hpn.houzz.com/"], :root a[href*="?adlivk="][href*="&refer="], :root a[href^="http://searchtabnew.com/"], :root a[href^="//look.djfiln.com/"], :root a[href^="http://greensmoke.com/"], :root a[href^="//5e1fcb75b6d662d.com/"], :root a[href^="http://googleads.g.doubleclick.net/pcs/click"], :root a[href^="https://bnsjb1ab1e.com/"], :root a[href^="http://mo8mwxi1.com/"], :root div[class^="ResponsiveAd-"], :root a[href^="http://install.securewebsiteaccess.com/"], :root a[href^="http://www.revenuehits.com/"], :root div[id^="block-views-topheader-ad-block-"], :root a[href^="https://bs.serving-sys.com"], :root .__y_elastic .__y_item, :root a[href^="http://go.mobisla.com/"], :root a[href^="//srv.buysellads.com/"], :root a[href^="http://g1.v.fwmrm.net/ad/"], :root .widget-pane-section-result[data-result-ad-type], :root a[href^="http://imads.integral-marketing.com/"], :root a[href^="http://freesoftwarelive.com/"], :root a[href^="http://adtrackone.eu/"], :root a[href^="http://finaljuyu.com/"], :root a[href^="https://paid.outbrain.com/network/redir?"], :root a[href^="http://fileupnow.rocks/"], :root a[href^="http://fileloadr.com/"], :root a[href^="https://dltags.com/"], :root a[href^="http://onclickads.net/"], :root a[href^="https://gghf.mobi/"], :root a[href^="http://www.terraclicks.com/"], :root a[href^="http://www.coinducks.com/"], :root a[href^="http://extra.bet365.com/"][href*="?affiliate="], :root a[href^="http://ethfw0370q.com/"], :root [id^="bunyad_ads_"], :root a[href^="http://elitefuckbook.com/"], :root a[href^="http://eclkmpsa.com/"], :root a[href*="//3wr110.xyz/"], :root a[href^="http://earandmarketing.com/"], :root a[href^="https://www.mypornstarcams.com/landing/click/"], :root a[href*=".intab.fun/"], :root a[href^="http://secure.signup-way.com/"], :root [href^="https://maskip.co/"], :root a[href^="http://getlinksinaseconds.com/"], :root #content > #center > .dose > .dosesingle, :root a[href^="http://campaign.bharatmatrimony.com/track/"], :root a[href^="http://d2.zedo.com/"], :root a[href^="http://keep2share.cc/pr/"], :root a[href^="http://cp.cbbp1.com"], :root a[href^="http://contractallsticker.net/"], :root a[href^="http://codec.codecm.com/"], :root a[href^="http://refer.webhostingbuzz.com/"], :root a[href^="http://www.downloadplayer1.com/"], :root a[href^="http://clicks.binarypromos.com/"], :root div[class^="largeRectangleAd_"], :root a[href^="https://dediseedbox.com/clients/aff.php?"], :root a[href^="http://www.wantstraffic.com/"], :root a[href^="http://databass.info/"], :root a[href^="http://www.urmediazone.com/signup"], :root a[href^="http://click.plista.com/pets"], :root a[href^="https://a.bestcontentpc.top/"], :root a[href^="http://chaturbate.com/affiliates/"], :root a[href^="http://www.firstload.com/affiliate/"], :root a[href^="http://www.friendlyadvertisements.com/"], :root a[href^="//00ae8b5a9c1d597.com/"], :root a[href^="http://cdn3.adbrau.com/"], :root a[href^="http://get.slickvpn.com/"], :root a[href^="http://amzn.to/"] > img[src^="data"], :root a[href^="http://bs.serving-sys.com/"], :root a[href^="http://cpaway.afftrack.com/"], :root a[href^="http://cdn.adsrvmedia.net/"], :root [lazy-ad="top_banner"], :root a[href^="http://360ads.go2cloud.org/"], :root a[href^="http://dftrck.com/"], :root a[href^="http://casino-x.com/?partner"], :root div[data-flt-ve="sponsored_search_ads"], :root a[href^="http://record.sportsbetaffiliates.com.au/"], :root a[href^="http://campeeks.com/"][href*="&utm_"], :root #flowplayer > div[style="position: absolute; width: 300px; height: 275px; left: 222.5px; top: 85px; z-index: 999;"], :root a[href^="http://download-performance.com/"], :root a[href^="http://www.on2url.com/app/adtrack.asp"], :root #\5f _nq__hh[style="display:block!important"], :root a[href^="http://guideways.info/"], :root a[href^="http://campaign.bharatmatrimony.com/cbstrack/"], :root a[href^="http://ads.expekt.com/affiliates/"], :root a[href^="http://callville.xyz/"], :root a[href^="http://xads.zedo.com/"], :root a[href^="https://bullads.net/get/"], :root a[href^="http://yads.zedo.com/"], :root a[href^="http://down1oads.com/"], :root a[href^="http://buysellads.com/"], :root a[href^="https://uncensored.game/"], :root td[valign="top"] > .mainmenu[style="padding:10px 0 0 0 !important;"], :root a[href^="http://feedads.g.doubleclick.net/"], :root a[href^="http://betahit.click/"], :root a[href^="http://bestorican.com/"], :root a[href^="http://bcp.crwdcntrl.net/"], :root a[href^="http://bc.vc/?r="], :root a[href^="http://www.pheedo.com/"], :root a[href^="http://banners.victor.com/processing/"], :root a[href^="http://adf.ly/?id="], :root a[href^="https://uncensored3d.com/"], :root a[href^="http://t.mdn2015x2.com/"], :root div[data-subscript="Advertising"], :root div[class$="dealnews"] > .dealnews, :root a[href^="http://click.payserve.com/"], :root a[href^="http://s5prou7ulr.com/"], :root a[href^="http://azmobilestore.co/"], :root a[href^="http://affiliate.glbtracker.com/"], :root a[href^="https://transfer.xe.com/signup/track/redirect?"], :root a[href^="http://anonymous-net.com/"], :root div[id^="ad_position_"], :root a[href^="https://www.dsct1.com/"], :root a[data-oburl^="https://paid.outbrain.com/network/redir?"], :root .icons-rss-feed + .icons-rss-feed div[class$="_item"], :root a[href^="http://aflrm.com/"], :root a[href^="http://affiliates.pinnaclesports.com/processing/"], :root a[href^="http://affiliate.godaddy.com/"], :root a[href^="http://partner.sbaffiliates.com/"], :root a[href^="http://affiliate.coral.co.uk/processing/"], :root a[href^="http://aff.ironsocket.com/"], :root a[href^="http://adsrv.keycaptcha.com"], :root a[href^="https://zononi.com/"], :root a[href^="http://adserving.unibet.com/"], :root a[href^="https://secure.adnxs.com/clktrb?"], :root a[href^="http://adserver.adtechus.com/"], :root a[href^="http://adserver.adreactor.com/"], :root a[href^="http://www.yourfuckbook.com/?"], :root a[href^="//go.onclasrv.com/"], :root .GHOFUQ5BG2 > .GHOFUQ5BF2 > .GHOFUQ5BG5, :root a[href^="http://cwcams.com/landing/click/"], :root a[href^="http://ads.betfair.com/redirect.aspx?"], :root a[href^="http://ads.affbuzzads.com/"], :root a[href^="http://tc.tradetracker.net/"], :root a[href^="http://online.ladbrokes.com/promoRedirect?"], :root a[href^="http://go.trafficshop.com/"], :root a[href^="http://ads.ad-center.com/"], :root a[href^="https://horny-pussies.com/tds"], :root a[href^="http://adfarm.mediaplex.com/"], :root a[href^="http://ad.doubleclick.net/"], :root a[href^="https://k2s.cc/pr/"], :root a[href^="http://ad.au.doubleclick.net/"], :root a[href^="https://understandsolar.com/signup/?lead_source="][href*="&tracking_code="], :root a[href^="http://ad-emea.doubleclick.net/"], :root a[href^="https://is.ltroute.com/"], :root a[href^="http://www.incredimail.com/?id"], :root a[href*="/servlet/click/zone?"], :root a[href^="http://ad-apac.doubleclick.net/"], :root script[src^="http://free-shoutbox.net/app/webroot/shoutbox/sb.php?shoutbox="] + #freeshoutbox_content, :root a[href^="http://hdplugin.flashplayer-updates.com/"], :root .trc_rbox_div .syndicatedItem, :root a[href^="http://data.ad.yieldmanager.net/"], :root a[href^="http://a63t9o1azf.com/"], :root a[href^="http://srvpub.com/"], :root a[href^="http://a.adquantix.com/"], :root a[href^="http://NowDownloadAll.com"], :root a[href^="http://adtrack123.pl/"], :root [id*="MGWrap"], :root a[href^="http://9amq5z4y1y.com/"], :root a[href^="http://4c7og3qcob.com/"], :root a[href^="//go.vedohd.org/"], :root a[href^="http://www.ducksnetwork.com/"], :root a[href^="http://3wr110.net/"], :root a[href^="http://prochina.space/"], :root a[href^="http://1phads.com/"], :root a[href^="https://bongacams2.com/track?"], :root a[href^="//zenhppyad.com/"], :root #MAIN.ShowTopic > .ad, :root a[href^="https://porngames.adult/?SID="], :root a[href^="http://findersocket.com/"], :root ad-slot--header-banner, :root a[href^="https://m.do.co/c/"] > img, :root a[href^="http://connectlinking6.com/"], :root a[href^="https://spygasm.com/track?"], :root a[href^="http://cdn3.adexprts.com/"], :root #tads + div + .c, :root a[href^="//jsmptjmp.com/"], :root .ra[width="30%"][align="right"] + table[width="70%"][cellpadding="0"], :root a[href^="https://ilovemyfreedoms.com/"][href*="?affiliate_id="], :root a[href^="//healthaffiliate.center/"], :root [id*="ScriptRoot"], :root a[href^="//db52cc91beabf7e8.com/"], :root .plistaList > .plista_widget_underArticle_item[data-type="pet"], :root #center_col > #taw > #tvcap > .commercial-unit-desktop-top, :root a[href^="http://www.afgr2.com/"], :root #mn div[style="position:relative"] > #center_col > ._Ak, :root a[href^="https://www.oboom.com/ad/"], :root a[href^="//4f6b2af479d337cf.com/"], :root a[href^="https://www.friendlyduck.com/AF_"], :root #center_col > #resultStats + div + #res + #tads, :root a[href^="//40ceexln7929.com/"], :root div[id^="div-gpt-ad"], :root a[href^="http://fusionads.net"], :root a[href^="https://awejmp.com/"], :root a[href^=" http://www.sex.com/"][href*="&utm_"], :root .section-result[data-result-ad-type], :root a[href^=" http://ads.ad-center.com/"], :root div[id^="dfp-slot-"], :root .l-container > #fishtank, :root a[href^="https://fileboom.me/pr/"], :root .GPMV2XEDA2 > .GPMV2XEDP1 > .GPMV2XEDJBB, :root a[href*="onclkds."], :root #ads > .dose > .dosesingle, :root a[href*="delivery.trafficfabrik.com"], :root a[href*="=exoclick"], :root div[class^="backfill-taboola-home-slot-"], :root a[href*="=adscript"], :root #mn #center_col > div > h2.spon:first-child, :root FBS-AD, :root .ra[align="right"][width="30%"], :root a[href*="5iclx7wa4q.com"], :root a[href^="http://lp.ncdownloader.com/"], :root a[href^="//pubads.g.doubleclick.net/"], :root a[href^="http://www.drowle.com/"], :root a[href*=".udncoeln.com/"], :root a[href*=".qertewrt.com/"], :root a[target="_blank"][href^="http://api.taboola.com/"], :root a[href*=".smartadserver.com"], :root a[href^="http://track.incognitovpn.com/"], :root a[data-oburl^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://refpa.top/"], :root a[href*=".revimedia.com/"], :root .__ywvr .__y_item, :root a[href^="https://farm.plista.com/pets"], :root a[href*=".red90121.com/"], :root a[href^="http://www.greenmangaming.com/?tap_a="], :root a[href*=".opskln.com/"], :root a[href*=".fwd28.com/"], :root [lazy-ad="leftbottom_banner"], :root p[id^="div-gpt-ad-"], :root a[href^="http://fsoft4down.com/"], :root a[href*="ad2upapp.com/"], :root .inlineNewsletterSubscription + .inlineNewsletterSubscription div[class$="_item"], :root a[href*=".orange2258.com/"], :root #taw > .med + div > #tvcap > .mnr-c:not(.qs-ic) > .commercial-unit-mobile-top, :root .plista_widget_belowArticleRelaunch_item[data-type="pet"], :root div[data-mediatype="advertising"], :root .mw > #rcnt > #center_col > #taw > #tvcap > .c, :root a[href^="https://playuhd.host/"], :root a[href^="http://mgid.com/"], :root a[href*=".adsrv.eacdn.com/"] > img, :root a[href^="http://lp.ilivid.com/"], :root .mod > .gws-local-promotions__border, :root a[href^="http://data.committeemenencyclopedicrepertory.info/"], :root a[href*=".allsports4you.club"], :root a[href^="http://spygasm.com/track?"], :root .ob_dual_right > .ob_ads_header ~ .odb_div, :root a[href*=".adk2x.com/"], :root a[href^="http://duckcash.eu/"], :root a[href^="http://www.mobileandinternetadvertising.com/"], :root a[href^="http://www.downloadthesefiles.com/"], :root a[href^="http://secure.cbdpure.com/aff/"], :root .GB3L-QEDGY .GB3L-QEDF- > .GB3L-QEDE-, :root a[data-url^="http://paid.outbrain.com/network/redir?"] + .author, :root a[href^="http://liversely.net/"], :root iframe[id^="google_ads_frame"], :root a[href^="http://www.bluehost.com/track/"] > img, :root a[data-url^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://play4k.co/"], :root a[data-redirect^="https://paid.outbrain.com/network/redir?"], :root a[href^="http://n.admagnet.net/"], :root a[href^="http://bestchickshere.com/"], :root a[href^="http://www.streamtunerhd.com/signup?"], :root #ssmiwdiv[jsdisplay], :root a[href^="//awejmp.com/"], :root a[href^="http://www.getyourguide.com/?partner_id="], :root [onclick^="window.open('https://www.brazzersnetwork.com/landing/"], :root a[href*="a2g-secure.com"], :root #resultspanel > #topads, :root a[href^="http://espn.zlbu.net/"], :root a[href^="http://k2s.cc/pr/"], :root a[href^="http://9nl.es/"], :root #assetsListings[style="display: block;"], :root [onclick^="window.open('window.open('//delivery.trafficfabrik.com/"], :root a[href^="http://adrunnr.com/"], :root [id*="MarketGid"], :root a[href^="http://www.accuserveadsystem.com/accuserve-go.php?"], :root a[href^="http://c.ketads.com/"], :root a[href^="http://6kup12tgxx.com/"], :root a[target="_blank"][onmousedown="this.href^='http://paid.outbrain.com/network/redir?"], :root a[href^="https://www.brazzersnetwork.com/landing/"], :root #cnt #center_col > #taw > #tvcap > .c._oc._Lp, :root [href*="//xml.revrtb.com/"], :root a[href^="http://hd-plugins.com/download/"], :root a[href^="//voyeurhit.com/cs/"], :root a[href^="http://www.afgr3.com/"], :root [ad-id^="googlead"], :root a[href^="//porngames.adult/?SID="], :root DFP-AD, :root a[href^="http://adclick.g.doubleclick.net/"], :root #main-content > [style="padding:10px 0 0 0 !important;"], :root #center_col > #resultStats + div[style="border:1px solid #dedede;margin-bottom:11px;padding:5px 7px 5px 6px"], :root div[class^="lifeOnwerAd"], :root a[href$="/vghd.shtml"], :root a[href^="https://redirect.ero-advertising.com/"], :root a[href^="http://easydownload4you.com/"], :root a[href^="http://ffxitrack.com/"], :root #center_col > #main > .dfrd > .mnr-c > .c._oc._zs, :root a[href^="http://b.bestcompleteusa.info/"], :root .trc_rbox_div .syndicatedItemUB, :root #mn div[style="position:relative"] > #center_col > div > ._dPg, :root a[href^="http://www.myvpn.pro/"], :root a[href^="//www.pd-news.com/"], :root a[href^="http://www.pinkvisualpad.com/?revid="], :root a[href*=".clksite.com/"], :root a[href^="http://www.webtrackerplus.com/"], :root .GJJKPX2N1 > .GJJKPX2M1 > .GJJKPX2P4, :root #center_col > #taw > #tvcap > .cu-container > .commercial-unit-desktop-top, :root a[href^="http://centertrust.xyz/"], :root a[href^="https://intrev.co/"], :root .vi-lb-placeholder[title="ADVERTISEMENT"], :root a[href^="http://goldmoney.com/?gmrefcode="], :root a[href^="http://papi.mynativeplatform.com:80/pub2/"], :root LEADERBOARD-AD, :root #mn #center_col > div > h2.spon:first-child + ol:last-child, :root a[href^="http://servicegetbook.net/"], :root #rhs_block > #mbEnd, :root a[href^="http://cinema.friendscout24.de?"], :root [lazy-ad="lefttop_banner"], :root a[href^="http://www.mrskin.com/tour"], :root .jobs-information-call-to-action + .jobs-information-call-to-action div[class$="_item"], :root .gbfwa > div[class$="_item"], :root a[href^="http://t.mdn2015x1.com/"], :root a[href^="http://www.menaon.com/installs/"], :root a[href^="http://taboola-"][href*="/redirect.php?app.type="], :root .mw > #rcnt > #center_col > #taw > .c, :root a[href^="https://www.incredimail.com/?id"], :root a[href^="http://api.content.ad/"], :root a[href^="http://adtransfer.net/"], :root a[href*=".clkcln.com/"], :root .commercial-unit-desktop-rhs > .iKidV > .Ee92ae + .P2mpm + .hp3sk, :root a[href^="http://www.uniblue.com/cm/"], :root a[href^="http://landingpagegenius.com/"], :root a[data-redirect^="http://click.plista.com/pets"], :root #rhs_block > script + .c._oc._Ve.rhsvw, :root #\5f _mom_ad_12, :root .__zinit .__y_item, :root .ch[onclick="ga(this,event)"], :root .__ywl .__y_item, :root a[href^="http://track.trkvluum.com/"], :root a[href*="/adrotate-out.php?"], :root a[href^="http://linksnappy.com/?ref="], :root [src^="/Redirect.a2b?"], :root a[href^="http://www.torntvdl.com/"], :root #center_col > #resultStats + #tads, :root .__yinit .__y_item, :root a[href^="//www.mgid.com/"], :root #center_col > div[style="font-size:14px;margin-right:0;min-height:5px"] > div[style="font-size:14px;margin:0 4px;padding:1px 5px;background:#fff8e7"], :root a[href^="http://track.affiliatenetwork.co.za/"], :root a[data-redirect^="http://paid.outbrain.com/network/redir?"], :root a[href^="https://secure.cbdpure.com/aff/"], :root AMP-AD, :root .__y_inner > .__y_item, :root .ra[align="left"][width="30%"], :root a[href^="https://trackjs.com/?utm_source"], :root AFS-AD, :root #cnt #center_col > #res > #topstuff > .ts, :root a[href^="https://landing.brazzersnetwork.com/"], :root a[href^="http://www.firstclass-download.com/"], :root a[href*=".trust.zone"], :root a[href*="googleme.eu"], :root .mod > ._jH + .rscontainer, :root .GFYY1SVD2 > .GFYY1SVC2 > .GFYY1SVF5, :root a[href^="https://dcs.adgear.com/clicks/"], :root a[href^="http://affiliates.score-affiliates.com/"], :root #rhswrapper > #rhssection[border="0"][bgcolor="#ffffff"], :root .Mpopup + #Mad > #MadZone, :root a[href^="https://www.adxtro.com/"], :root #center_col > #\5f Emc, :root div[id^="dfp-ad-"], :root div[class^="advertisement-desktop"], :root a[href^="http://ads2.williamhill.com/redirect.aspx?"], :root a[href^="https://www.spyoff.com/"], :root AD-TRIPLE-BOX, :root .rc-cta[data-target], :root #rhs_block > .ts[cellspacing="0"][cellpadding="0"][style="padding:0"], :root #header + #content > #left > #rlblock_left, :root a[href^="http://www.seekbang.com/cs/"], :root a[href^="http://syndication.exoclick.com/"], :root a[href^="http://bluehost.com/track/"], :root a[href^="https://squren.com/rotator/?atomid="], :root .nrelate .nr_partner, :root #center_col > #resultStats + #tads + #res + #tads, :root a[href^="//medleyads.com/spot/"], :root a[href*="mfroute.com/"], :root a[href^="//z6naousb.com/"], :root #rhs_block > ol > .rhsvw > .kp-blk > .xpdopen > ._OKe > ol > ._DJe > .luhb-div, :root a[href^="http://tezfiles.com/pr/"], :root a[href^="http://t.wowtrk.com/"], :root #center_col > #taw > #tvcap > .rscontainer, :root #main_col > #center_col div[style="font-size:14px;margin:0 4px;padding:1px 5px;background:#fff7ed"], :root a[href^="http://webtrackerplus.com/"], :root a[href^="http://clickandjoinyourgirl.com/"], :root div[itemtype="http://schema.org/WPAdBlock"], :root a[href^="https://www.nudeidols.com/cams/"], :root #center_col > #res > #topstuff + #search > div > #ires > #rso > #flun, :root a[href^="http://www.sex.com/pics/?utm_"], :root a[href^="http://vo2.qrlsx.com/"], :root a[href^="http://engine.newsmaxfeednetwork.com/"], :root a[href^="http://ad.yieldmanager.com/"], :root a[href^="http://www.plus500.com/?id="], :root #flowplayer > div[style="z-index: 208; position: absolute; width: 300px; height: 275px; left: 222.5px; top: 85px;"], :root a[href^="http://ddownload39.club/"], :root a[href^="http://n217adserv.com/"], :root a[href^="//4c7og3qcob.com/"] { display: none !important; }</style><style type="text/css">.fancybox-margin{margin-right:0px;}</style></head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    
+      <a style="text-decoration:underline" class="header-title-link" href="https://www.didierboelens.com/fr/">Voir les autres articles</a>
+    
+  </div>
+  
+    
+      <a class="header-right-picture " href="https://www.didierboelens.com/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="./Flutter - Reactive Button_files/logo.png" alt="Photo de l&#39;auteur">
+      
+    
+    </a>
+  
+  
+    <div class="pull-right">
+      
+<div class="dropdown">
+    <button class="btn btn-transparent dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        FR
+    </button>
+    <div class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://www.didierboelens.com/">EN</a>
+        
+            <a class="dropdown-item" href="https://www.didierboelens.com/fr/">FR</a>
+        
+    </div>
+</div>
+
+    </div>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div style="position: absolute; display: block; left: 10px; top: 10px">
+      
+<div class="dropdown">
+    <button class="btn btn-transparent dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        FR
+    </button>
+    <div class="dropdown-menu">
+        
+            <a class="dropdown-item" href="https://www.didierboelens.com/">EN</a>
+        
+            <a class="dropdown-item" href="https://www.didierboelens.com/fr/">FR</a>
+        
+    </div>
+</div>
+
+  </div>
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://www.didierboelens.com/#about">
+          <img class="sidebar-profile-picture" src="./Flutter - Reactive Button_files/moi.jpg" alt="Photo de l&#39;auteur">
+        </a>
+        <h4 class="sidebar-profile-name">Didier Boelens</h4>
+        
+          <h5 class="sidebar-profile-bio">Bienvenue dans le monde de Flutter</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.didierboelens.com/fr/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Articles</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.didierboelens.com/fr/page/services/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question-circle"></i>
+      
+      <span class="sidebar-button-desc">Puis-je vous aider?</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.didierboelens.com/fr/page/contact/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-envelope"></i>
+      
+      <span class="sidebar-button-desc">Contact</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.didierboelens.com/fr/2018/04/bienvenue/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-handshake-o"></i>
+      
+      <span class="sidebar-button-desc">Bienvenue</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.didierboelens.com/fr/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">À propos</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4" class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <div class="d-none d-md-block" style="margin-bottom: 30px">
+    <script async="" src="./Flutter - Reactive Button_files/f.txt" style="display: none !important;"></script>
+    
+    <ins class="adsbygoogle" style="display: none !important;" data-ad-client="ca-pub-9541831517245687" data-ad-slot="9140547480" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+  
+  
+    <h1 class="post-title" itemprop="headline">
+      Reactive Button
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-09-04T12:00:00+02:00">
+        
+  Septembre 4, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>dans</span>
+    
+      <a class="category-link" href="https://www.didierboelens.com/fr/categories/flutter">flutter</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Cet article explique comment reproduire le bouton réaction de Facebook, utilisant Reactive Programming, Overlay, Animation, Streams, BLoC Pattern et GestureDetector.</p>
+
+<p>Difficulté: <em>Intermédiaire</em>
+</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Récemment, quelqu’un m’a demandé comment il serait possible d’imiter le buton <em>Facebook Reaction</em> (=<em>bouton réaction</em>) en Flutter. Après réflexion, j’ai réalisé que c’était l’occasion de mettre en pratique des sujets que j’ai récemment abordés dans des articles précédents.</p>
+
+<p>La solution que je vais expliquer (je l’ai appelée “<em>reactive button</em>”) utilise les notions suivantes:</p>
+
+<ul>
+<li><a href="https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/" target="_blank">Reactive Programming, Streams, BLoC</a></li>
+<li><a href="https://www.didierboelens.com/2018/06/how-to-create-a-toast-or-notifications-notion-of-overlay/" target="_blank">Overlay</a></li>
+<li><a href="https://www.didierboelens.com/2018/06/animations-in-flutter---easy-guide---tutorial/" target="_blank">Animations</a></li>
+<li>Global positioning</li>
+<li><a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html" target="_blank">GestureDetector</a></li>
+</ul>
+
+<p>Le code source de cet article se trouve sur <a href="https://github.com/boeledi/flutter_reactive_button" target="_blank">GitHub</a>.</p>
+
+<p>Il est également disponible en tant que package Flutter: <a href="https://pub.dartlang.org/packages/flutter_reactive_button" target="_blank">flutter_reactive_button</a>.</p>
+
+<p>Voici une animation qui montre le résultat de cet article.</p>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center">
+  
+    <a class="fancybox" href="./Flutter - Reactive Button_files/reactive_button.gif" title="Reactive Button" data-fancybox-group="group:st1">
+  
+    <img class="fig-img" src="./Flutter - Reactive Button_files/reactive_button.gif" style="width: 350px;" alt="Reactive Button">
+  
+    </a>
+  
+   
+    <span class="caption">Reactive Button</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+<hr>
+
+<h2 id="besoins">Besoins</h2>
+
+<p>Avant d’entrer dans les détails de l’implémentation, considérons d’abord comment fonctionne le <em>Bouton de réaction Facebook</em>:</p>
+
+<ul>
+<li>Lorsqu’un utilisateur appuie sur un bouton, attend un certain temps (appelé <em>Long Press</em>), un panneau s’affiche à l’écran, invitant l’utilisateur à sélectionner l’une des icônes contenues dans ce panneau;</li>
+<li>Si l’utilisateur déplace son doigt sur une icône, celle-ci grandit;</li>
+<li>Si l’utilisateur retire son doigt de cette icône, cette dernière récupère sa taille d’origine;</li>
+<li>Si l’utilisateur relâche son doigt alors qu’il se trouve encore sur une icône, cette dernière est sélectionnée;</li>
+<li>Si l’utilisateur relâche son doigt alors qu’aucune icône n’est survolée, il n’y a pas de sélection;</li>
+<li>Si l’utilisateur appuie simplement sur le bouton, ce qui signifie qu’il n’est pas considéré comme un <em>Long Press</em>, l’action est considérée comme un tap <em>normal</em>;</li>
+<li>Nous pourrions avoir <strong>plusieurs instances</strong> de ce <em>reactive button</em> à l’écran;</li>
+<li>Les icônes doivent être affichées dans la partie visible de l’écran (=<em>Viewport</em>).</li>
+</ul>
+
+<hr>
+
+<h2 id="description-de-la-solution">Description de la Solution</h2>
+
+<h3 id="les-différentes-parties-visuelles">Les différentes parties visuelles</h3>
+
+<p>Le graphique suivant montre les différentes parties impliquées dans la solution:</p>
+
+<ul>
+<li><p><em>ReactiveButton</em></p>
+
+<p>Le <em>ReactiveButton</em> peut être positionné n’importe où sur l’écran. Lorsque l’utilisateur effectue un <em>Long Press</em> sur celui-ci, il déclenche l’affichage de <em>ReactiveIconContainer</em>.</p></li>
+
+<li><p><em>ReactiveIconContainer</em></p>
+
+<p>Conteneur simple pour afficher les différents <em>ReactiveIcons</em></p></li>
+
+<li><p><em>ReactiveIcon</em></p>
+
+<p>Une icône qui peut augmenter de taille si l’utilisateur la survole.</p></li>
+</ul>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center">
+  
+    <a class="fancybox" href="./Flutter - Reactive Button_files/reactive_button_1.png" title="Reactive Button" data-fancybox-group="group:st1">
+  
+    <img class="fig-img" src="./Flutter - Reactive Button_files/reactive_button_1.png" alt="Reactive Button">
+  
+    </a>
+  
+   
+    <span class="caption">Reactive Button</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+<h3 id="overlay">Overlay</h3>
+
+<p>Lorsqu’une application a démarré, Flutter crée et génère automatiquement un widget <a href="https://docs.flutter.io/flutter/widgets/Overlay-class.html" target="_blank">Overlay</a>.  Ce widget <em>Overlay</em> n’est rien d’autre qu’un <strong>Stack</strong> qui permet aux widgets visuels de “<em>flotter</em>” par-dessus les autres Widgets.</p>
+
+<p>Généralement, cet <strong>Overlay</strong> est principalement utilisé par le <a href="https://docs.flutter.io/flutter/widgets/Navigator-class.html" target="_blank">Navigator</a> pour afficher des <em>Routes</em> (= <em>page ou écran</em>), <em>Dialogs</em>, <em>DropDown</em>…</p>
+
+<p>L’image suivante illustre la notion de * Overlay *. Les widgets sont disposés les uns sur les autres.</p>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center">
+  
+    <a class="fancybox" href="./Flutter - Reactive Button_files/reactive_button_layer.png" title="Reactive Button Overlay" data-fancybox-group="group:st2">
+  
+    <img class="fig-img" src="./Flutter - Reactive Button_files/reactive_button_layer.png" alt="Reactive Button Overlay">
+  
+    </a>
+  
+   
+    <span class="caption">Reactive Button Overlay</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+<p>Chaque Widget que vous positionnez dans un <strong>Overlay</strong> doit être inséré via un <a href="https://docs.flutter.io/flutter/widgets/OverlayEntry-class.html" target="_blank">OverlayEntry</a>.</p>
+
+<p>Profitant de ce concept, nous pouvons facilement afficher le <em>ReactiveIconContainer</em>, par-dessus tout contenu, via un <em>OverlayEntry</em>.</p>
+
+<h4 id="pourquoi-utiliser-overlayentry-et-pas-un-stack-normal">Pourquoi utiliser OverlayEntry et pas un Stack normal ?</h4>
+
+<p>L’une des exigences stipule que nous devons afficher la liste des icônes <em>par-dessus n’importe quel contenu</em>.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-dart codeblock" data-lang="dart"><span class="err">@</span><span class="n">override</span>
+<span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">Stack</span><span class="p">(</span>
+        <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
+            <span class="n">_buildButton</span><span class="p">(),</span>
+            <span class="n">_buildIconsContainer</span><span class="p">(),</span>
+            <span class="p">...</span>
+        <span class="p">],</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">Widget</span> <span class="n">_buildIconsContainer</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="o">!</span><span class="n">_isContainerVisible</span> <span class="o">?</span> <span class="n">Container</span><span class="p">()</span> <span class="o">:</span> <span class="p">...;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Si nous utilisions un <em>Stack</em>, comme indiqué ci-dessus, cela entraînerait quelques problèmes:</p>
+
+<ol>
+<li><p>Nous ne serions jamais certains que le <em>ReactiveIconContainer</em> serait systématiquement <em>par-dessus n’importe quel contenu</em>, puisque le <em>ReactiveButton</em> pourrait lui-même faire partie d’un autre <em>Stack</em> (et peut-être être sous un autre Widget);</p></li>
+
+<li><p>Il faudrait implémenter une logique pour afficher ou non le <em>ReactiveIconContainer</em> et donc reconstruire (=<em>build</em>) le <em>Stack</em>, ce qui ne serait pas très efficace.</p></li>
+</ol>
+
+<p>Sur cette base, j’ai décidé d’utiliser les notions de <strong>Overlay</strong> et <strong>OverlayEntry</strong> pour afficher le <em>ReactiveIconContainer</em>.</p>
+
+<h3 id="détection-des-gestes">Détection des gestes</h3>
+
+<p>Afin de savoir ce que nous devons faire (afficher les icônes, agrandir / réduire une icône, sélectionner …), nous devrons utiliser la <em>détection de mouvements</em>. En d’autres termes, la gestion des événements liés au(x) <em>doigt(s) de l’utilisateur</em>. Dans Flutter, il existe différentes manières de gérer l’interaction avec le(s) doigt(s) de l’utilisateur.</p>
+
+<p>En Flutter, le <em>doigt de l’utilisateur</em> est appelé <em>Pointer</em>.</p>
+
+<p>Pour cette solution, j’ai opté pour pour l’utilisation du <a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html" target="_blank">GestureDetector</a>, qui fournit tous les outils pratiques dont nous avons besoin, parmi lesquels:</p>
+
+<ul>
+<li><p><em>onHorizontalDragDown</em> &amp; <em>onVerticalDragDown</em></p>
+
+<p>un <em>callback</em> (=<em>fonction de rappel</em>) qui est appelé lorsque le <em>pointer</em> a touché l’écran</p></li>
+
+<li><p><em>onHorizontalDragStart</em> &amp; <em>onVerticalDragStart</em></p>
+
+<p>un <em>callback</em> qui est appelé lorsque le <em>pointer</em> commence à se déplacer sur l’écran</p></li>
+
+<li><p><em>onHorizontalDragEnd</em> &amp; <em>onVerticalDragEnd</em></p>
+
+<p>un <em>callback</em> qui est appelé lorsque le <em>pointer</em>, précédemment en contact avec l’écran, ne touche plus l’écran</p></li>
+
+<li><p><em>onHorizontalDragUpdate</em> &amp; <em>onVerticalDragUpdate</em></p>
+
+<p>un <em>callback</em> qui est appelé lorsque le <em>pointer</em> se déplace sur l’écran</p></li>
+
+<li><p><em>onTap</em></p>
+
+<p>un <em>callback</em> qui est appelé lorsque le <em>GestureDetector</em> considère que l’utilisateur a tapé sur l’écran</p></li>
+
+<li><p><em>onHorizontalDragCancel</em> &amp; <em>onVerticalDragCancel</em></p>
+
+<p>un <em>callback</em> qui est appelé lorsque le <em>GestureDetector</em> considère que l’action qui vient d’être faite avec le <em>pointer</em>, qui a précédemment touché l’écran, ne conduira à aucun événement <em>tap</em></p></li>
+</ul>
+
+<p>Comme tout commence lorsque l’utilisateur touche l’écran au niveau du <em>ReactiveButton</em>, il semble naturel d’envelopper (=<em>wrap</em>) le <em>ReactiveButton</em> avec un <em>GestureDetector</em>, comme suit:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-dart codeblock" data-lang="dart"><span class="err">@</span><span class="n">override</span>
+<span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">GestureDetector</span><span class="p">(</span>
+        <span class="nl">onHorizontalDragStart:</span> <span class="n">_onDragStart</span><span class="p">,</span>
+        <span class="nl">onVerticalDragStart:</span> <span class="n">_onDragStart</span><span class="p">,</span>
+        <span class="nl">onHorizontalDragCancel:</span> <span class="n">_onDragCancel</span><span class="p">,</span>
+        <span class="nl">onVerticalDragCancel:</span> <span class="n">_onDragCancel</span><span class="p">,</span>
+        <span class="nl">onHorizontalDragEnd:</span> <span class="n">_onDragEnd</span><span class="p">,</span>
+        <span class="nl">onVerticalDragEnd:</span> <span class="n">_onDragEnd</span><span class="p">,</span>
+        <span class="nl">onHorizontalDragDown:</span> <span class="n">_onDragReady</span><span class="p">,</span>
+        <span class="nl">onVerticalDragDown:</span> <span class="n">_onDragReady</span><span class="p">,</span>
+        <span class="nl">onHorizontalDragUpdate:</span> <span class="n">_onDragMove</span><span class="p">,</span>
+        <span class="nl">onVerticalDragUpdate:</span> <span class="n">_onDragMove</span><span class="p">,</span>
+        <span class="nl">onTap:</span> <span class="n">_onTap</span><span class="p">,</span>
+        <span class="nl">child:</span> <span class="n">_buildButton</span><span class="p">(),</span>
+    <span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<h4 id="remarque-liée-aux-callbacks-de-type-onpan">Remarque liée aux <em>callbacks</em> de type onPan…</h4>
+
+<p>Le <em>GestureDetector</em> fournit également des <em>callbacks</em>, appelés <em>onPanStart</em>, <em>onPanCancel</em>…,  qui pourraient également être utilisés et qui fonctionnent correctement en l’absence de <em>Scrolling Area</em>.  Etant donné que dans cet exemple, nous devons également considérer le cas où le  <em>ReactiveButton</em> serait positionné dans une <em>Scrollable Area</em>, cela ne fonctionnera pas.</p>
+
+<p>En effet, avec les <em>callbacks</em> <em>onPan…</em>, quand l’utilisateur fera glisser son doigt sur l’écran, cela provoquera également le défilement de la <em>Scroll Area</em>; ce que nous ne désirons pas.</p>
+
+<h4 id="remarque-liée-au-callback-onlongpress">Remarque liée au <em>callback</em> onLongPress</h4>
+
+<p>Comme vous pouvez le constater, je n’utilise pas le rappel <em>onLongPress</em> alors que les exigences indiquent que nous devons afficher le <em>ReactiveIconContainer</em> lorsque l’utilisateur appuie longuement sur le bouton. Pourquoi ?</p>
+
+<p>La raison est double:</p>
+
+<ul>
+<li><p>Je vais capturer les <em>événements gestuels</em> pour déterminer quelle icône est survolée/sélectionnée et en utilisant l’événement <em>onLongPress</em>, les mouvements de type “<em>drag</em>” sont ignorés (ou ne fonctionnent pas toujours correctement)</p></li>
+
+<li><p>Peut-être aurions-nous besoin de personnaliser la durée “<em>Long Press</em>“</p></li>
+</ul>
+
+<hr>
+
+<h3 id="responsabilités">Responsabilités</h3>
+
+<p>Voyons maintenant la/les responsabilité(s) des différentes parties …</p>
+
+<h4 id="reactivebutton"><em>ReactiveButton</em></h4>
+
+<p>Le <em>ReactiveButton</em> sera responsable de:</p>
+
+<ul>
+<li>capturer les événements gestuels</li>
+<li>afficher le <em>ReactiveIconContainer</em> lorsqu’un <em>longPress</em> est détecté</li>
+<li>cacher le <em>ReactiveIconContainer</em> lorsque l’utilisateur relâche son doigt de l’écran</li>
+<li>fournir à l’appelant le résultat de l’activité de l’utilisateur (onTap, onSelected)</li>
+<li>afficher correctement <em>ReactiveIconContainer</em> sur l’écran</li>
+</ul>
+
+<h4 id="reactiveiconcontainer"><em>ReactiveIconContainer</em></h4>
+
+<p>Le <em>ReactiveIconContainer</em> sera uniquement responsable de:</p>
+
+<ul>
+<li>construire le conteneur d’icônes</li>
+<li>instancier les icônes</li>
+</ul>
+
+<h4 id="reactiveicon"><em>ReactiveIcon</em></h4>
+
+<p>Le <em>ReactiveIcon</em> sera responsable de:</p>
+
+<ul>
+<li>montrer l’icône dans une taille différente selon qu’il soit survolée ou non</li>
+<li>dire au <em>ReactiveButton</em> s’il est survolé ou non</li>
+</ul>
+
+<hr>
+
+<h3 id="communication-entre-les-composants">Communication entre les composants</h3>
+
+<p>Nous venons de voir que nous devons initier une communication entre les composants afin que:</p>
+
+<ul>
+<li>le <em>ReactiveButton</em> puisse fournir au <em>ReactiveIcon</em> la position du <em>pointer</em> sur l’écran (qui sera utilisée pour déterminer si une icône est survolée ou non)</li>
+<li>le <em>ReactiveIcon</em> puisse dire au <em>ReactiveButton</em> s’il est survolé ou non</li>
+</ul>
+
+<p>Afin de ne pas avoir de code spaghetti, je ferai appel à la notion de <strong>Streams</strong>.</p>
+
+<p>De cette façon:</p>
+
+<ul>
+<li>le <em>ReactiveButton</em> va <em>diffuser</em> (=<em>broadcast</em>) la position du <em>pointer</em> à quiconque est intéressé de le savoir</li>
+<li>le <em>ReactiveIcon</em> va <em>diffuser</em> (=<em>broadcast</em>) à quiconque est intéressé, s’il est survolé ou non</li>
+</ul>
+
+<p>L’image suivante illustre cette idée.</p>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center">
+  
+    <a class="fancybox" href="./Flutter - Reactive Button_files/reactive_button_streams.png" title="Reactive Button Streams" data-fancybox-group="group:st3">
+  
+    <img class="fig-img" src="./Flutter - Reactive Button_files/reactive_button_streams.png" alt="Reactive Button Streams">
+  
+    </a>
+  
+   
+    <span class="caption">Reactive Button Streams</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+<h3 id="position-exacte-du-reactivebutton">Position exacte du <em>ReactiveButton</em></h3>
+
+<p>Comme le <em>ReactiveButton</em> pourrait être placé n’importe où dans la page, nous devons obtenir sa position pour pouvoir afficher le <em>ReactiveIconContainer</em> et comme l’écran pourrait être plus grand que la fenêtre et le <em>ReactiveButton</em>, situé n’importe où sur l’écran, nous devons obtenir ses coordonnées physiques.</p>
+
+<p>La classe d’assistance suivante nous donne cette position, ainsi que des informations supplémentaires relatives au <em>device</em>, de l’écran, …</p>
+
+<p><br>
+<script src="./Flutter - Reactive Button_files/faf98443e0edd9932d6c0ea6c5651d7a.js.téléchargé"></script></p>
+
+<hr>
+
+<h2 id="détails-de-la-solution">Détails de la solution</h2>
+
+<p>Ok, maintenant que nous avons les gros blocs de la solution, construisons tout cela …</p>
+
+<h3 id="détermination-des-intentions-de-l-utilisateur">Détermination des intentions de l’utilisateur</h3>
+
+<p>La partie la plus délicate de ce Widget est de comprendre ce que l’utilisateur veut faire, c’est-à-dire comprendre les <em>gestes</em>.</p>
+
+<h4 id="1-longpress-vs-tap">1. LongPress vs Tap</h4>
+
+<p>Comme mentionné précédemment, nous ne pouvons pas utiliser le <em>callback</em> <em>onLongPress</em> car nous considérons également les mouvements de type <em>Dragging</em>. Par conséquent, nous devrons le mettre en œuvre nous-mêmes.</p>
+
+<p>Cela sera réalisé comme suit:</p>
+
+<ol>
+<li><p>Lorsque l’utilisateur touche l’écran (via <em>onHorizontalDragDown</em> ou <em>onVerticalDragDown</em>), nous démarrons un <a href="https://docs.flutter.io/flutter/dart-async/Timer-class.html" target="_blank">Timer</a></p></li>
+
+<li><p>Si l’utilisateur relâche son doigt de l’écran <strong>avant</strong> le délai du <em>Timer</em>, cela signifie que le <em>LongPress</em> ne s’est pas réalisé</p></li>
+
+<li><p>Si l’utilisateur n’a pas relâché son doigt avant le délai du <em>Timer</em>, cela signifie que nous devons considérer le <em>LongPress</em> et non plus le <em>Tap</em>. Nous affichons ensuite le <em>ReactiveIconContainer</em>.</p></li>
+
+<li><p>Si le <em>callback</em> <em>onTap</em> est appelé, nous devons annuler le <em>Timer</em>.</p></li>
+</ol>
+
+<p>L’extrait de code suivant illustre l’implémentation de l’explication ci-dessus.
+<br></p>
+
+<script src="./Flutter - Reactive Button_files/6ecc91141286aae71f3747d2e589a189.js.téléchargé"></script>
+
+<h4 id="2-afficher-cacher-les-icônes">2. Afficher/Cacher les icônes</h4>
+
+<p>Lorsque nous avons déterminé qu’il est temps d’afficher les icônes, comme expliqué précédemment, nous allons les afficher <em>par-dessus n’importe quel contenu</em>, en utilisant un <em>OverlayEntry</em>.</p>
+
+<p>L’extrait de code suivant montre comment instancier le <em>ReactiveIconContainer</em> et l’ajouter à l’<em>Overlay</em> (ainsi que de le retirer de l’<em>Overlay</em>).</p>
+
+<script src="./Flutter - Reactive Button_files/28ac180f1d536d05a9c473c1adfc8eb6.js.téléchargé"></script>
+
+<ul>
+<li><p><em>Ligne #9</em></p>
+
+<p>Nous récupérons l’instance de <em>Overlay</em> depuis le <em>BuildContext</em></p></li>
+
+<li><p><em>Lignes #12-18</em></p>
+
+<p>Nous créons une nouvelle instance de <em>OverlayEntry</em>, qui incorpore une nouvelle instance de <em>ReactiveIconContainer</em></p></li>
+
+<li><p><em>Ligne 21</em></p>
+
+<p>Nous ajoutons le <em>OverlayEntry</em> à l’<em>Overlay</em></p></li>
+
+<li><p><em>Ligne 25</em></p>
+
+<p>Lorsque nous devons retirer le <em>ReactiveIconContainer</em> de l’écran, nous supprimons simplement le <em>OverlayEntry</em> correspondant.</p></li>
+</ul>
+
+<h4 id="3-diffusion-broadcasting-des-gestes">3. Diffusion (=<em>Broadcasting</em>) des gestes</h4>
+
+<p>Précédemment, nous avons dit que le <em>ReactiveButton</em> serait utilisé pour diffuser les déplacements du <em>Pointer</em> vers <em>ReactiveIcon</em> via l’utilisation de <em>Streams</em>.</p>
+
+<p>Pour ce faire, nous devons créer le <em>Stream</em> qui sera utilisé pour véhiculer ces informations.</p>
+
+<h5 id="3-1-simple-streamcontroller-vs-bloc">3.1. Simple StreamController vs BLoC</h5>
+
+<p>Une implémentation simple aurait pu être la suivante, au niveau <em>ReactiveButton</em>:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-dart codeblock" data-lang="dart"><span class="n">StreamController</span><span class="o">&lt;</span><span class="n">Offset</span><span class="o">&gt;</span> <span class="n">_gestureStream</span> <span class="o">=</span> <span class="n">StreamController</span><span class="o">&lt;</span><span class="n">Offset</span><span class="o">&gt;</span><span class="p">.</span><span class="n">broadcast</span><span class="p">();</span>
+
+<span class="c1">// puis, lorsque nous instancions l'OverlayEntry
+</span><span class="c1"></span><span class="p">...</span>
+<span class="n">_overlayEntry</span> <span class="o">=</span> <span class="n">OverlayEntry</span><span class="p">(</span>
+    <span class="nl">builder:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">ReactiveIconContainer</span><span class="p">(</span>
+            <span class="nl">stream:</span> <span class="n">_gestureStream</span><span class="p">.</span><span class="n">stream</span><span class="p">,</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+
+<span class="c1">// lorsque nous devons transmettre les gestes
+</span><span class="c1"></span><span class="kt">void</span> <span class="n">_onDragMove</span><span class="p">(</span><span class="n">DragUpdateDetails</span> <span class="n">details</span><span class="p">){</span>
+    <span class="n">_gestureStream</span><span class="p">.</span><span class="n">sink</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">details</span><span class="p">.</span><span class="n">globalPosition</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Cela aurait bien fonctionné <strong>mais</strong>, plus tôt dans l’article, nous avons également mentionné qu’un second <em>Stream</em> serait utilisé pour transmettre les informations du <em>ReactiveIcons</em> au <em>ReactiveButton</em>. Par conséquent, j’ai décidé de partir sur la base d’un <strong>BLoC Pattern</strong>.</p>
+
+<p>Voici ci-dessous l’extrait du <em>BLoC</em> résultant, qui ne sera utilisé que pour transmettre le geste en utilisant des <em>Streams</em>.</p>
+
+<script src="./Flutter - Reactive Button_files/61ac8586852f02cf7a13c3556d714641.js.téléchargé"></script>
+
+<p>Comme vous pouvez le remarquer, j’utilise le <a href="https://pub.dartlang.org/packages/rxdart" target="_blank">package RxDart</a>, et plus spécifiquement <strong>PublishSubject</strong> et <strong>Observable</strong> (et non <strong>StreamController</strong> ou <strong>Stream</strong>) car ces classes offrent des fonctionnalités supplémentaires que nous utiliserons un peu plus tard.</p>
+
+<h5 id="3-2-instanciation-du-bloc-et-sa-mise-à-disposition-au-reactiveicon">3.2. Instanciation du BLoC et sa mise à disposition au <em>ReactiveIcon</em></h5>
+
+<p>Comme le <em>ReactiveButton</em> est responsable de la diffusion des gestes, il est logique qu’il soit également chargé d’instancier le BLoC, de le fournir aux <em>ReactiveIcons</em> et de relâcher ses ressources quand il n’est plus nécessaire.</p>
+
+<p>Nous le ferons de la manière suivante:</p>
+
+<script src="./Flutter - Reactive Button_files/0a861e451fc2e0e4cf54dde65f91e577.js.téléchargé"></script>
+
+<ul>
+<li>Ligne 10: nous instancions <em>bloc</em></li>
+<li>Ligne 19: nous relâchons ses ressources</li>
+<li>Ligne 29: lorsqu’un geste <em>Drag</em> est détecté, nous le transmettons aux icônes, via le <em>Stream</em></li>
+<li>Ligne 47: nous passons le <em>BLoC</em> au <em>ReactiveIconContainer</em></li>
+</ul>
+
+<hr>
+
+<h3 id="détermination-du-reactiveicon-survolé-sélectionné">Détermination du <em>ReactiveIcon</em> survolé/sélectionné</h3>
+
+<p>Une autre partie intéressante est de savoir quel <em>ReactiveIcon</em> est survolé afin de le mettre en évidence.</p>
+
+<h4 id="1-chaque-icône-utilisera-le-stream-pour-obtenir-la-position-du-pointeur">1. Chaque icône utilisera le <em>Stream</em> pour obtenir la position du pointeur</h4>
+
+<p>Pour obtenir la position <em>Pointer</em>, chaque <em>ReactiveIcon</em> <em>s’abonnera</em> (=<em>subscribe</em>) aux <em>Streams</em> comme suit:</p>
+
+<script src="./Flutter - Reactive Button_files/7c3bb774f57fd371edd2b368de91b541.js.téléchargé"></script>
+
+<p>Nous utilisons un <a href="https://docs.flutter.io/flutter/dart-async/StreamSubscription-class.html" target="_blank">StreamSubscription</a> pour écouter les positions gestuelles, diffusées par le <em>ReactiveButton</em> via le <em>BLoC</em>.</p>
+
+<p>Comme le <em>Pointer</em> peut se déplacer assez souvent, il ne serait pas très efficace de vérifier s’il survole ou non l’icône à chaque fois qu’un changement de position se produit. Afin de réduire ce nombre de validations, nous tirons parti du <strong>Observable</strong> pour <em>bufferiser</em> les événements émis par <em>ReactiveButton</em> et ne considérer les changements que toutes les 100 millisecondes.</p>
+
+<h4 id="2-détermination-si-le-pointeur-survole-l-icône">2. Détermination si le pointeur survole l’icône</h4>
+
+<p>Afin de déterminer si le <em>Pointer</em> survole une icône, nous:</p>
+
+<ul>
+<li>obtenons sa position, via la classe d’assistance <em>WidgetPosition</em></li>
+<li>vérifions si la position du <em>Pointer</em> survole l’icône, via le <em>widgetPosition.rect.contains(position)</em></li>
+</ul>
+
+<script src="./Flutter - Reactive Button_files/378ad1a91d48fdb9dfcf128483384702.js.téléchargé"></script>
+
+<p>Comme le fait de <em>mettre en mémoire tampon les événements</em> émis par le <em>Stream</em> a généré un tableau de positions, nous ne considérons que le dernier élément de ce tableau. Ceci explique le <em>position.last</em>, utilisé dans cette routine.</p>
+
+<h4 id="3-mettre-en-évidence-le-reactiveicon-survolé">3. Mettre en évidence le <em>ReactiveIcon</em> survolé</h4>
+
+<p>Afin de mettre en évidence le <em>ReactiveIcon</em> survolé, nous utiliserons une <em>Animation</em> pour augmenter ses dimensions, comme suit:</p>
+
+<script src="./Flutter - Reactive Button_files/4bf19c31be9c3457d447dd5269c343ff.js.téléchargé"></script>
+
+<p>Explications:</p>
+
+<ul>
+<li>Ligne 1:  nous utilisons un <em>SingleTickerProviderStateMixin</em> pour l’animation</li>
+<li>Lignes 16-20: nous initialisons l’<strong>AnimationController</strong></li>
+<li>Lignes 20-23: lorsque l’animation sera lancée, nous <em>reconstruirons</em> (=<em>build</em> via <em>setState</em>) le <em>ReactiveIcon</em></li>
+<li>Ligne 37: nous devons libérer les ressources liées au <em>AnimationController</em> lorsque <em>ReactiveIcon</em> sera supprimé</li>
+<li>Lignes 44-48: nous allons mettre à l’échelle le <em>ReactiveIcon</em> basé sur la valeur <em>AnimationController.value</em> (range[0..1]) par un rapport à une échelle arbitraire</li>
+<li>Ligne 67: lorsque le <em>ReactiveIcon</em> est survolé, lancer l’<em>Animation</em> (de 0 -&gt; 1)</li>
+<li>Ligne 72: lorsque le <em>ReactiveIcon</em> n’est plus survolé, lancer l’<em>Animation</em> (de 1 -&gt; 0)</li>
+</ul>
+
+<h4 id="4-faire-savoir-si-un-reactiveicon-est-survolé">4. Faire savoir si un <em>ReactiveIcon</em> est survolé</h4>
+
+<p>La toute dernière partie de cette explication concerne le fait de transmettre au <em>ReactiveButton</em> le <em>ReactiveIcon</em> actuellement survolé afin que, si l’utilisateur relâche son doigt de l’écran à ce moment, nous puissions savoir quel <em>ReactiveIcon</em> doit être considéré comme <em>choisi</em>.</p>
+
+<p>Comme mentionné précédemment, nous utiliserons un deuxième <em>Stream</em> pour transmettre cette information.</p>
+
+<h5 id="4-1-message-à-transmettre">4.1. Message à transmettre</h5>
+
+<p>Pour indiquer au <em>ReactiveButton</em> quel <em>ReactiveIcon</em> est <em>en train d’être survolé</em> ou quel <em>ReactiveIcon</em> n’est plus survolé, nous utiliserons un message propriétaire: <strong>ReactiveIconSelectionMessage</strong>. Ce message indiquera “<em>quelle icône est potentiellement sélectionnée</em>” et “<em>quelle icône n’est plus potentiellement sélectionnée</em>”.</p>
+
+<h5 id="4-2-modifications-appliquées-au-bloc">4.2. Modifications appliquées au BLoC</h5>
+
+<p>Le BLoC doit maintenant inclure le nouveau <em>Stream</em> pour transmettre le message.</p>
+
+<p>Voici le nouveau BLoC:</p>
+
+<script src="./Flutter - Reactive Button_files/f3f26502682c29e23611e1e5ba896660.js.téléchargé"></script>
+
+<h5 id="4-3-permettre-au-reactivebutton-de-recevoir-les-messages">4.3. Permettre au <em>ReactiveButton</em> de recevoir les messages</h5>
+
+<p>Pour que le <em>ReactiveButton</em> reçoive de telles notifications, émises par <em>ReactiveIcons</em>, nous devons souscrire aux événements de message, comme suit:</p>
+
+<script src="./Flutter - Reactive Button_files/f16aeee811534097cd7a117a687ad5c4.js.téléchargé"></script>
+
+<ul>
+<li>Ligne 14: nous nous abonnons à tous les messages, émis par le <em>Stream</em></li>
+<li>Ligne 21: nous libérons l’abonnement lorsque le <em>ReactiveButton</em> est supprimé</li>
+<li>Lignes 32-42: traitement du message, émis par le <em>ReactiveIcons</em></li>
+</ul>
+
+<h4 id="4-4-transmission-du-message-par-le-reactiveicon">4.4. Transmission du message par le <em>ReactiveIcon</em></h4>
+
+<p>Au niveau du <em>ReactiveIcon</em>, lorsque celui-ci doit envoyer un message au <em>ReactiveButton</em>, il utilise simplement le <em>Stream</em> comme suit:</p>
+
+<script src="./Flutter - Reactive Button_files/195e85fb25f793ca25a19957166086b8.js.téléchargé"></script>
+
+<ul>
+<li>Lignes 8 et 14: appel de la méthode <em>_sendNotification</em> lorsqu’une modification s’applique à la variable <em>_isHovered</em></li>
+<li>Lignes 23-29: émettre un <em>ReactiveIconSelectionMessage</em> au <em>Stream</em></li>
+</ul>
+
+<hr>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>Je ne pense pas qu’il soit nécessaire d’expliquer davantage le reste du code car il ne concerne que les aspects de paramétrisation ou d’apparence du Widget <em>ReactiveButton</em>.</p>
+
+<p>L’objectif de cet article était de montrer comment combiner plusieurs sujets (<em>BLoC</em>, <em>Reactive Programming</em>, <em>Animation</em>, <em>Overlay</em>) et de fournir un exemple pratique d’utilisation.</p>
+
+<p>J’espère que vous aurez trouvé cet article intéressant.</p>
+
+<p>Restez à l’écoute pour les prochains articles très bientôt et surtout: “Happy coding”.</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGÉ DANS</span><br>
+                    
+  <a class="tag tag--primary tag--small" href="https://www.didierboelens.com/fr/tags/flutter/">flutter</a>
+
+  <a class="tag tag--primary tag--small" href="https://www.didierboelens.com/fr/tags/reactive-programming/">reactive programming</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav>
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://www.didierboelens.com/fr/2018/08/reactive-programming---streams---bloc/" data-tooltip="Reactive Programming - Streams - BLoC">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://www.didierboelens.com/fr/2018/11/flutter---crush/" data-tooltip="Flutter - Crush">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share">
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="https://www.didierboelens.com/fr/2018/09/reactive-button/#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://www.didierboelens.com/fr/2018/09/reactive-button/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="https://www.didierboelens.com/fr/2018/09/reactive-button/#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="https://www.didierboelens.com/fr/2018/09/reactive-button/#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              <script async="" src="./Flutter - Reactive Button_files/f.txt" style="display: none !important;"></script>
+
+<ins class="adsbygoogle" style="display: none !important;" data-ad-client="ca-pub-9541831517245687" data-ad-slot="6062114117" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    © 2020 Didier Boelens. Tous droits réservés
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav>
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://www.didierboelens.com/fr/2018/08/reactive-programming---streams---bloc/" data-tooltip="Reactive Programming - Streams - BLoC">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://www.didierboelens.com/fr/2018/11/flutter---crush/" data-tooltip="Flutter - Crush">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share">
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="https://www.didierboelens.com/fr/2018/09/reactive-button/#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://www.didierboelens.com/fr/2018/09/reactive-button/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="https://www.didierboelens.com/fr/2018/09/reactive-button/#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="https://www.didierboelens.com/fr/2018/09/reactive-button/#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fwww.didierboelens.com%2Ffr%2F2018%2F09%2Freactive-button%2F">
+          <i class="fa fa-twitter"></i><span>Partager sur Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+    <img id="about-card-picture" src="./Flutter - Reactive Button_files/moi.jpg" alt="Photo de l&#39;auteur">
+    
+    <h4 id="about-card-name">Didier Boelens</h4>
+    
+      <div id="about-card-bio">Bienvenue dans le monde de Flutter</div>
+      <div id="about-card-bio"><i class="fa fa-lg fa-twitter" style="margin-right: 10px"></i>@DidierBoelens</div>
+      <div id="about-card-bio"><i class="fa fa-lg fa-github" style="margin-right: 10px"></i><a href="https://github.com/boeledi" target="_blank">https://github.com/boeledi</a></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br>
+        Flutter Expert - Consultant
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br>
+        Belgique
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com/" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search" class="form-control input--large search-input" placeholder="Rechercher">
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">aucun article trouvé</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://www.didierboelens.com/fr/2019/07/provider---points-dint%C3%A9r%C3%AAt---points-dattention/">
+                <h3 class="media-heading">Provider - Points d'intérêt - Points d'attention</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Tour du package ‘Provider’, points d’intérêt et d’attention.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://www.didierboelens.com/fr/2019/04/bloc---scopedmodel---redux---comparaison/">
+                <h3 class="media-heading">BLoC - ScopedModel - Redux - Comparaison</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>BLoC, Scoped Model, Redux… Comparaison et quand les utiliser?</p>
+
+<p>Difficulté: <em>Débutant</em>
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://www.didierboelens.com/fr/2019/02/astuce-6-calque-suite-%C3%A0-un-longpress-dans-un-scroll-container/">
+                <h3 class="media-heading">Astuce 6: Calque suite à un longPress dans un Scroll Container</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Comment afficher un calque en superposition d’un élément particulier, présent dans une zone de défilement, suite à une action de type <em>longPress</em>?</p>
+
+<p>Difficulté: <em>Intermédiaire</em>
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://www.didierboelens.com/fr/2019/01/futures---isolates---event-loop/">
+                <h3 class="media-heading">Futures - Isolates - Event Loop</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Single Thread, multi threading, synchronous et asynchronous.  Cet article explique les différents modes d’exécution du code dans Flutter.</p>
+
+<p>Difficulté: <em>Intermédiaire</em>
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://www.didierboelens.com/fr/2018/12/reactive-programming---streams---bloc---cas-practiques-dutilisation/">
+                <h3 class="media-heading">Reactive Programming - Streams - BLoC - Cas Practiques d'Utilisation</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>BLoC, Reactive Programming, Streams - Cas practiques d’utilisation et modèles (=<em>pattern</em>) utiles.</p>
+
+<p>Difficulté: <em>Intermédiaire</em>
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://www.didierboelens.com/fr/2018/11/flutter---crush/">
+                <h3 class="media-heading">Flutter - Crush</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Comment écrirer un jeu de type Match-3, tel que Candy Crush, Bejeweled, FishDom… en Flutter.</p>
+
+<p>Difficulté: <em>Intermédiaire</em>
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://www.didierboelens.com/fr/2018/09/reactive-button/">
+                <h3 class="media-heading">Reactive Button</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Cet article explique comment reproduire le bouton réaction de Facebook, utilisant Reactive Programming, Overlay, Animation, Streams, BLoC Pattern et GestureDetector.</p>
+
+<p>Difficulté: <em>Intermédiaire</em>
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://www.didierboelens.com/fr/2018/08/reactive-programming---streams---bloc/">
+                <h3 class="media-heading">Reactive Programming - Streams - BLoC</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Introduction aux notions de Streams, BloC et Programmation Réactive (Reactive Programming). Théorie et exemples pratiques.</p>
+
+<p>Difficulté: <em>Intermédiaire</em>
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://www.didierboelens.com/fr/2018/07/range-slider/">
+                <h3 class="media-heading">Range Slider</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Construire un Range Slider de 2 curseurs, étape par étape…</p>
+
+<p>Difficulté: <em>Avancé</em>
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://www.didierboelens.com/fr/2018/07/semantics/">
+                <h3 class="media-heading">Semantics</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Cet article explique la notion de <strong>Semantics</strong> (= <em>Sémantique</em>) en Flutter.</p>
+
+<p>Difficulté: <em>Débutant</em>
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium" data-message-zero="aucun article trouvé" data-message-one="1 article trouvé" data-message-other="{n} articles trouvés">
+         27 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url(&#39;https://www.didierboelens.com/images/cover.jpg&#39;);"></div>
+  
+
+
+    
+<script src="./Flutter - Reactive Button_files/jquery.min.js.téléchargé" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="./Flutter - Reactive Button_files/highlight.min.js.téléchargé" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="./Flutter - Reactive Button_files/jquery.fancybox.min.js.téléchargé" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="./Flutter - Reactive Button_files/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js.téléchargé"></script>
+<script src="./Flutter - Reactive Button_files/bootstrap4.bundle.js.téléchargé"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/www.didierboelens.com\/fr\/2018\/09\/reactive-button\/';
+          
+            this.page.identifier = '\/fr\/2018\/09\/reactive-button\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'didierboelens';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  
+
+
+</body></html>
