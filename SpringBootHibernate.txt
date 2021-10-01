@@ -1,0 +1,68 @@
+create table with two primary key => equals hash code+twotable
+@transit == ignore the value suivant pour la persistance [value / obj = colomn ] 
+car any objet dans db doit etre serialisable => sinon on peut ajouter une stategie @onetomany ...
+@JsonIgnore pour l'envoie ses objet json/restfulapi => casser les boucles infinis 
+[marche avec transit pour resoudre]
+
+heritage :
+class mere = @enhiritace(strategie=class_per_table)
+cfils extend mere + chaque obj fils a son duplication des id de class mere + other attr+ new attr[his own]
+strategie=singletable + @discrinitaredColumn(name="")
+strategie =joined [best one]
+
+
+///
+@Entity
+@enhiritace(strategie=table_per_class)
+//les childs vont avoir le meme info que Personne + thiere data
+//Pb de Savoir la liste totale des personne (il faut faire 3 join entre les 3table => pour avoir l'ensemble)
+public class Personne{
+
+}
+
+@Entity
+public class prof extends Personne{
+    private int numSome;
+    private int indice = 500;
+    prof(){
+        super();//
+    
+    }
+}
+public class student extend Personne{
+    private int 
+}
+
+************strategie 2:
+Une seul Table + Colomn Coucou + ne marche que avec des attribut Nullable , sinon on doit ajouter traitement/validation dans Java , et cela n'est pas applique directemenet sur Databasae
+=> traitement des data specifique .. mais en generale , on pose les contraintes sur la BD , pour aller plus vide 
+
+@enhiritace(strategie=Single_table)//Personne
+@discrinitaredColumn(name="Coucou" , DFescrType=int)
+@DescyValue("1") //sont des opinions , et spring a ses opinions par default
+
+
+
+@Entity //Student
+@DescyValue("2")
+
+@Entity //Prof
+@DescyValue("3")
+
+************strategie 2:
+// on va avoir 3 tables, etudaint has his own data , also prof , avec un cles etrang dans personne OneToOne ..
+//on peut travailler avec des data nullable ,, mais ca nessite l'administration des bd .. creation des index .. [
+la base du prod etstt generalement Geante    
+]
+strategie =joined 
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Les Relations :
+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ public class compte {
+     private String Emial;
+     private string password
+     private boolean active;
+ }

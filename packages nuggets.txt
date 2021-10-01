@@ -1,0 +1,35 @@
+M.VS.Web.CodeGeneration.Design
+Microsofit.VS.Web.BrowserLink
+
+M.ExramworkCore.Tools
+M.EF.SqlServer
+M.EF.Design
+M.AspNetCore.StaticFiles
+M.AspNetCore.Razor.Design
+M.AspNetCore.MVC
+M.AspNetCore
+
+============
+dotnet ef migrations add ComplexDataModel
+dotnet ef database update
+
+++++++++++++++++++
+
+diagramme d’entité diagramme a été généré à l’aide d’Entity Framework Power Tools pour EF 6.x 
+
+
+Clé composite
+Étant donné que les clés étrangères ne sont pas nullables et qu’elles identifient ensemble de façon unique chaque ligne de la table,
+ une clé primaire distincte n’est pas requise. Les InstructorID CourseID Propriétés et doivent fonctionner comme une clé primaire composite.
+ La seule façon d’identifier des clés primaires composites pour EF consiste à utiliser l’API Fluent (ce n’est pas possible à l’aide d’attributs). 
+Vous allez voir comment configurer la clé primaire composite dans la section suivante.
+
+La clé composite garantit qu’en ayant plusieurs lignes pour un cours et plusieurs lignes pour un formateur,
+ vous ne puissiez pas avoir plusieurs lignes pour les mêmes formateur et cours. 
+L’entité de jointure Enrollment définit sa propre clé primaire, si bien que les doublons de ce type sont possibles.
+ Pour éviter ces doublons, vous pourriez ajouter un index unique sur les champs de clé étrangère ou configurer 
+Enrollment avec une clé composite primaire similaire à CourseAssignment. Pour plus d’information
+
+==============================
+
+À propos de l’alternative d’API Fluent

@@ -1,0 +1,52 @@
+mysql://bda7e6b2fe881b:31446be1@eu-cdbr-west-01.cleardb.com/heroku_f9e18c232aed1d4?reconnect=true
+mysql://username:password@machineadress/name of shema?configuringcnx
+BD applicationLocation
+mysql://b9fffe5787e5f6:3793f011@eu-cdbr-west-01.cleardb.com/heroku_219fd38b80a5929?reconnect=true
+BD API
+mysql://b892778d3de9c6:0e37665a@eu-cdbr-west-01.cleardb.com/test?reconnect=true
+mysql://be9999db324520:a864c79f@eu-cdbr-west-01.cleardb.com/heroku_fe2acba4864c308?reconnect=true
+
+mysql://b892778d3de9c6:0e37665a@eu-cdbr-west-01.cleardb.com/test?reconnect=true
+
+logeemenet api 2eme tty
+mysql://b50708dd4fe96d:62e6ad2e@eu-cdbr-west-01.cleardb.com/heroku_3b21a25f59e5f25?reconnect=true
+rest client
+
+css peek [love it]
+html css support
+live sass compiler .. https://youtu.be/c5GAS_PMXDs?t=708
+also emmet : WOW lu>li*5 p#idname p.className lorem30 [30 words of lorem ,,]
+App Logement
+mysql://b9fffe5787e5f6:3793f011@eu-cdbr-west-01.cleardb.com/heroku_219fd38b80a5929?reconnect=true
+
+NewOne appLocation
+mysql://b91fd32dfa93d4:ef56a213@eu-cdbr-west-01.cleardb.com/heroku_b4a55e5616ae76d?reconnect=true
+
+Fintbat New:
+mysql://b56cb10500890c:96a846fa@eu-cdbr-west-01.cleardb.com/heroku_4d2689c7f990df6?reconnect=true
+
+
+
+
+
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+
+  "scripts": {
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
+  },
+
+mysql://b892778d3de9c6:0e37665a@eu-cdbr-west-01.cleardb.com/heroku_61cf7c48150f9d7?reconnect=true
+
+mysql://b892778d3de9c6:0e37665a@eu-cdbr-west-01.cleardb.com/heroku_61cf7c48150f9d7?reconnect=true
+
+mysql://username:password@machineadress/name of shema?configuringcnx
