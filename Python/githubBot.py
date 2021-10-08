@@ -16,10 +16,11 @@ f = open("dateToday.txt","w")
 f.write(str(day))
 f.close
 
-# Push
+# Push to github
 
 import os
 CommandCommit = "git commit -m "+str(day)
 os.system("git add .")
 os.system(CommandCommit)
+os.system("git push")
 
