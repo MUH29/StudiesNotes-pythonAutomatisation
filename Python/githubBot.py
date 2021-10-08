@@ -19,7 +19,7 @@ f.close
 # Push to github
 
 import os
-CommandCommit = "git commit -m "+str(day)
+CommandCommit = "git commit -m " +str(str(day)+"Day❤") 
 os.system("git add .")
 os.system(CommandCommit)
 os.system("git push")
