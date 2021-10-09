@@ -3,7 +3,8 @@
 #I learned a lot from this small project : pythonw.py <--> .pyw extention it used to run your the script on 
 # the background (without the shell) (instead of python.exe -- .py)
 #to automate the excecution , you can use task Schelduler wich I find so intressting
-# or as I prefere , just to put the file(script) on   C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
+# or as I prefere , just to put the file(script) on
+#    C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 
 import psutil
 from win10toast import ToastNotifier
