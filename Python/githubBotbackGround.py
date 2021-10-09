@@ -21,9 +21,9 @@ def new_func1():
         new_func(day)
         notifier = ToastNotifier()
         notifier.show_toast("Khay Reda , I pushed the commit to github 😉 ",duration=30)
-    f = open("dateToday.txt","w")
-    f.write(str(day))
-    f.close
+        f = open("dateToday.txt","w")
+        f.write(str(day))
+        f.close
 import time
 
 while(True):
